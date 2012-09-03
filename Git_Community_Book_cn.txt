@@ -49,6 +49,7 @@ Git索引：工作目录和项目仓库间的暂存区。提交的是索引里�
   git status
   git commit -m 'commit' | git commit -a
 
+分支与合并基础
   git branch
   git branch branch_name
   git checkout branch_name | git checkout master
@@ -57,3 +58,27 @@ Git索引：工作目录和项目仓库间的暂存区。提交的是索引里�
   gitk //图形显示项目历史
   git branch -d local | git branch -D local //delete
 
+查看历史
+  git log
+  git log -p //显示patchs
+  git log --stat //显示修改文件及添加删除了多少行
+  git log --pretty=[raw|short|format] //格式化日志
+    git log --pretty=format:'%h : %s' --graph
+
+比较提交
+  git diff
+  git diff --cached //显示当前索引和上次提交的差异
+
+分布式工作流程
+  git clone
+  git pull //直接合并远程分支
+  git remote add bob /home/bob/myrepo
+    git fetch bob //抓取远程文件但不合并
+    git log -p master..bob/master //查看远程分支历史记录
+    git merge bob/master //合并远程分支
+  git push 
+
+Git标签
+  标签对象可以指向任何对象，但通常是一个提交(commit),而第一个是tree
+  git tag tag-name commit_shavalue //轻量级，分支不移动
+  git tag -a tag-name commit_shavalue //创建标签对象
