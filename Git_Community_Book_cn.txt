@@ -82,3 +82,18 @@ Git标签
   标签对象可以指向任何对象，但通常是一个提交(commit),而第一个是tree
   git tag tag-name commit_shavalue //轻量级，分支不移动
   git tag -a tag-name commit_shavalue //创建标签对象
+
+
+
+
+//以下内容来自网络其它地方
+删除文件
+  git rm filename1 filename2
+  git rm -r fold/
+  git commit -m 'rm file'
+  
+重命名
+  git mv old.txt new.txt
+
+生成变更日志
+  git log > ChangeLog
