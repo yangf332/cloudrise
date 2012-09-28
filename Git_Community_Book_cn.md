@@ -12,17 +12,17 @@ Git Community Book中文版
 
   > 分四个类型: blob, tree, commit, tag
 
-  >* blob: 存储文件数据
-  >* tree: 管理tree和blob
-  >* commit: 指向一个tree，标记项目某特定时间点的状态
-  >* tag: 标记一个commit的方法
+  * blob: 存储文件数据
+  * tree: 管理tree和blob
+  * commit: 指向一个tree，标记项目某特定时间点的状态
+  * tag: 标记一个commit的方法
 
-  > 命令
+  命令
 
-  >* git ls-tree tree_sha1; 
-  >* git show blob_sha1; 
-  >* git log , git show -s --pretty=raw commit_sha1;
-  >* git cat-file tag v1.5;
+  * git ls-tree tree_sha1; 
+  * git show blob_sha1; 
+  * git log , git show -s --pretty=raw commit_sha1;
+  * git cat-file tag v1.5;
 
   
 ###Git目录与工作目录
@@ -40,12 +40,12 @@ Git Community Book中文版
   
   > linux:
     
-  >* $ yum install git-core
-  >* $ apt-get install git-core
+  * $ yum install git-core
+  * $ apt-get install git-core
   
   > Windows:
     
-  >* 下载安装msysGit
+  * 下载安装msysGit
 
 ###配置
     
@@ -66,33 +66,33 @@ Git Community Book中文版
 
 ###分支与合并基础
 
-  >* git branch
-  >* git branch branch_name
-  >* git checkout branch_name | git checkout master
-  >* git merge branch_name
-  >* git diff //查看冲突
-  >* gitk //图形显示项目历史
-  >* git branch -d local | git branch -D local //delete
+  * git branch
+  * git branch branch_name
+  * git checkout branch_name | git checkout master
+  * git merge branch_name
+  * git diff //查看冲突
+  * gitk //图形显示项目历史
+  * git branch -d local | git branch -D local //delete
 
 ###查看历史
-  >* git log
-  >* git log -p //显示patchs
-  >* git log --stat //显示修改文件及添加删除了多少行
-  >* git log --pretty=[raw|short|format] //格式化日志
-  >* git log --pretty=format:'%h : %s' --graph
+  * git log
+  * git log -p //显示patchs
+  * git log --stat //显示修改文件及添加删除了多少行
+  * git log --pretty=[raw|short|format] //格式化日志
+  * git log --pretty=format:'%h : %s' --graph
 
 ###比较提交
-  >* git diff
-  >* git diff --cached //显示当前索引和上次提交的差异
+  * git diff
+  * git diff --cached //显示当前索引和上次提交的差异
 
 ###分布式工作流程
-  >* git clone
-  >* git pull //直接合并远程分支
-  >* git remote add bob /home/bob/myrepo
-  >* git fetch bob //抓取远程文件但不合并
-  >* git log -p master..bob/master //查看远程分支历史记录
-  >* git merge bob/master //合并远程分支
-  >* git push 
+  * git clone
+  * git pull //直接合并远程分支
+  * git remote add bob /home/bob/myrepo
+  * git fetch bob //抓取远程文件但不合并
+  * git log -p master..bob/master //查看远程分支历史记录
+  * git merge bob/master //合并远程分支
+  * git push 
 
 ###Git标签
   > 标签对象可以指向任何对象，但通常是一个提交(commit),而第一个是tree
