@@ -39,4 +39,22 @@ HTTP权威指南
     * 隧道
     * Agent代理
 
+
+## 第二章 URL与资源
+
+URL格式：
+> <scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
+> 最重要的是 方案://服务器位置/路径
+
+URL快捷方式：相对URL
+
+字符问题：
+
+## HTTP报文
+
+HTTP报文是传递信息的包裹
+
+
+
+
   
