@@ -79,7 +79,7 @@ bootstrap 标签集
 
 ### Forms
 
-    base:
+    basic:
       form>legend+label+input:text+span+label>input:checkbox
     search form:
       form.form-search>input:text.input-medium.search-query
@@ -177,7 +177,24 @@ bootstrap 标签集
     icon-volume-off;icon-volume-down;icon-volume-up;icon-qrcode;icon-barcode;
     icon-tag;icon-tags;icon-book;icon-bookmark;icon-print;
     icon-camera;icon-font;icon-bold;icon-italic;icon-text-height;
-    icon-text-width;icon-align-left;icon-align-center;icon-align-right;icon-align-justify;icon-list;icon-indent-left;icon-indent-right;icon-facetime-video;icon-picture;icon-pencil;icon-map-marker;icon-adjust;icon-tint;icon-edit;icon-share;icon-check;icon-move;icon-step-backward;icon-fast-backward;icon-backward;icon-play;icon-pause;icon-stop;icon-forward;icon-fast-forward;icon-step-forward;icon-eject;icon-chevron-left;icon-chevron-right;icon-plus-sign;icon-minus-sign;icon-remove-sign;icon-ok-sign;icon-question-sign;icon-info-sign;icon-screenshot;icon-remove-circle;icon-ok-circle;icon-ban-circle;icon-arrow-left;icon-arrow-right;icon-arrow-up;icon-arrow-down;icon-share-alt;icon-resize-full;icon-resize-small;icon-plus;icon-minus;icon-asterisk;icon-exclamation-sign;icon-gift;icon-leaf;icon-fire;icon-eye-open;icon-eye-close;icon-warning-sign;icon-plane;icon-calendar;icon-random;icon-comment;icon-magnet;icon-chevron-up;icon-chevron-down;icon-retweet;icon-shopping-cart;icon-folder-close;icon-folder-open;icon-resize-vertical;icon-resize-horizontal;icon-hdd;icon-bullhorn;icon-bell;icon-certificate;icon-thumbs-up;icon-thumbs-down;icon-hand-right;icon-hand-left;icon-hand-up;icon-hand-down;icon-circle-arrow-right;icon-circle-arrow-left;icon-circle-arrow-up;icon-circle-arrow-down;icon-globe;icon-wrench;icon-tasks;icon-filter;icon-briefcase;icon-fullscreen;
+    icon-text-width;icon-align-left;icon-align-center;icon-align-right;icon-align-justify;
+    icon-list;icon-indent-left;icon-indent-right;icon-facetime-video;icon-picture;
+    icon-pencil;icon-map-marker;icon-adjust;icon-tint;icon-edit;
+    icon-share;icon-check;icon-move;icon-step-backward;icon-fast-backward;
+    icon-backward;icon-play;icon-pause;icon-stop;icon-forward;
+    icon-fast-forward;icon-step-forward;icon-eject;icon-chevron-left;icon-chevron-right;
+    icon-plus-sign;icon-minus-sign;icon-remove-sign;icon-ok-sign;icon-question-sign;
+    icon-info-sign;icon-screenshot;icon-remove-circle;icon-ok-circle;icon-ban-circle;
+    icon-arrow-left;icon-arrow-right;icon-arrow-up;icon-arrow-down;icon-share-alt;
+    icon-resize-full;icon-resize-small;icon-plus;icon-minus;icon-asterisk;
+    icon-exclamation-sign;icon-gift;icon-leaf;icon-fire;icon-eye-open;
+    icon-eye-close;icon-warning-sign;icon-plane;icon-calendar;icon-random;
+    icon-comment;icon-magnet;icon-chevron-up;icon-chevron-down;icon-retweet;
+    icon-shopping-cart;icon-folder-close;icon-folder-open;icon-resize-vertical;icon-resize-horizontal;
+    icon-hdd;icon-bullhorn;icon-bell;icon-certificate;icon-thumbs-up;
+    icon-thumbs-down;icon-hand-right;icon-hand-left;icon-hand-up;icon-hand-down;
+    icon-circle-arrow-right;icon-circle-arrow-left;icon-circle-arrow-up;icon-circle-arrow-down;icon-globe;
+    icon-wrench;icon-tasks;icon-filter;icon-briefcase;icon-fullscreen;
 
     i.icon-search.icon-white
     example:
@@ -194,7 +211,9 @@ bootstrap 标签集
 
 ### Dropdowns
     
-    base:
+  require: dropdowns javascript plugin
+
+    basic:
       ul.dropdown-menu>li*3>a
                        li.divider
     markup:
@@ -206,7 +225,7 @@ bootstrap 标签集
 
 ### Button groups
 
-    base:
+    basic:
       div.btn-group>button.btn*3
     multiple button groups:
       div.btn-toolbar>div.btn-group
@@ -215,9 +234,50 @@ bootstrap 标签集
 
 ### Button dropdown menu
 
-    base:
+    basic:
+      div.btn-group>a.btn.dropdown-toggle+ul.dropdown-menu
 
+  Dropup menus
 
+    div.btn-group.dropup>button.btn+button.btn.dropdown-toggle+ul.dropdown-menu
+
+### Navs
+
+    basic:
+      ul.nav.nav-tabs>li.active+li*2
+    basec pills:
+      ul.nav.nav-pills>li.active+li*2
+    disabled state:
+      li.disabled
+    stackable:
+      ul.nav.nav-tabs.nav-stacked>li.active+li*2
+    stacked pills:
+      ul.nav.nav-pills.nav-stacked>li.active+li*2
+
+  Nav lists
+
+    ul.nav.nav-list>li.nav-header+li.active+li*3
+    ul.nav.nav-list>li.divider+li.active+li*3
+
+  Tabbable nav - require: jq plugin
+
+    div.tabbable>ul.nav.nav-tabs>li.active+li
+                 div.tab-content>div.tab-pane.active>p
+                                >div.tab-pane>p
+    .fade   
+
+  Tabbable in any direction
+
+    bottom:
+      div.tabbable.tabs-below>div.tab-content+ul.nav.nav-tabs
+    left:
+      div.tabbable.tabs-left>ul.nav.nav-tabs+div.tab-content
+    right:
+      div.tabbable.tabs-right>ul.nav.nav-tabs+div.tab-content
+
+### Navbar
+
+  
      
     
 
