@@ -79,14 +79,14 @@ bootstrap 标签集
 
 ### Forms
 
-  base:
-    form>legend+label+input:text+span+label>input:checkbox
-  search form:
-    form.form-search>input:text.input-medium.search-query
-  inline form:
-    form.form.form-inline>input*2+label>input
-  horizontal form:
-    form.form-horizontal>div.control-group*3>label.control-label+div.controls>input
+    base:
+      form>legend+label+input:text+span+label>input:checkbox
+    search form:
+      form.form-search>input:text.input-medium.search-query
+    inline form:
+      form.form.form-inline>input*2+label>input
+    horizontal form:
+      form.form-horizontal>div.control-group*3>label.control-label+div.controls>input
 
   input
 
@@ -138,7 +138,7 @@ bootstrap 标签集
       div.control-group.error>label.control-label+div.controls>input+span.help-inline
       div.control-group.success>label.control-label+div.controls>input+span.help-inline
 
-  ### Button
+### Button
 
     style:
       button.btn
@@ -159,13 +159,13 @@ bootstrap 标签集
       button.btn.disabled
       a.btn.btn.disabled
 
-  ### Images
+### Images
 
     img.img-rounded
     img.img-circle
     img.img-polaroid
 
-  ＃## Icons by Glyphicons
+### Icons by Glyphicons
 
     icon-glass;icon-music;icon-search;icon-envelope;icon-heart;
     icon-star;icon-star-empty;icon-user;icon-film;icon-th-large;
@@ -190,9 +190,9 @@ bootstrap 标签集
     small button:
       a.btn.btn-small>i.icon-star
 
-  ## Components
+## Components
 
-  ### Dropdowns
+### Dropdowns
     
     base:
       ul.dropdown-menu>li*3>a
@@ -204,7 +204,7 @@ bootstrap 标签集
     sub menus: 
       ul.dropdown-menu>li.dropdown-submenu>ul.dropdown-menu
 
-  ### Button groups
+### Button groups
 
     base:
       div.btn-group>button.btn*3
@@ -213,10 +213,10 @@ bootstrap 标签集
     vertical button groups:
       div.btn-group.btn-group-vertical
 
-  ### Button dropdown menu
+### Button dropdown menu
 
     base:
-      
+
 
      
     
