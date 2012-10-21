@@ -53,11 +53,41 @@ URL快捷方式：相对URL
 
 ## 第三章 HTTP报文
 
-HTTP报文是传递信息的包裹
+HTTP报文是传递信息的包
 
-HTTP使用术语流入（inbound）和流出（outbound）描述事务处理的方向。
+HTTP报文像河水一样流动。术语流入（inbound）和流出（outbound），上游（upstream）和下游（downstream）用来描述流动的方向。
 
-HTTP报文像河水一样流动。流动的方向就是下游（downstream）
+### 报文的组成部分
+
+简单的文本格式。分为三个部分
+
+    1. start line : HTTP/1.0 200 ok
+    2. header     : Content-type:text/plain Content-length:19   
+    3. body       : Hi! I'm a message!
+
+每个部分间用一个回车符（ASCII 13）和一个换行符（ASCII 10）结束。但要注意老的HTTP应用可能并不发送结束符。
+
+### 报文的语法
+
+所有报文都可以分为请求报文（request message）和响应报文（response message）。两者结构相同。
+ 
+    请求报文
+    GET /specials/saw-blade.gif HTTP/1.0
+    Host: www.xxxx.com
+
+    响应报文
+    HTTP/1.0 200 OK
+    Content-Type: image/gif
+    Content-Length: 8888
+
+这里面包含了：方法（method）、请求URL（request-URL）、版本（version）、状态码（status-code）、原因短语（reason-phrase）、首部（header）、实体的主体部分（entity-body）
+
+### 起始行（start line）
+
+请求报文的起始行说明了__要做什么__，而响应报文的起始行说明了__发生了什么__
+
+1. 
+
 
 
   
