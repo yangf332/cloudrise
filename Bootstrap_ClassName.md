@@ -277,9 +277,87 @@ bootstrap 标签集
 
 ### Navbar
 
+    basic:
+      div.navbar>div.navbar-inner>a.brand+ul.nav>li.active+li*2
+    ...
+
+### Breadcrumbs
+
+    ul.breadcrumb>li*2>a+span.divider
+                  li.active
+
+### Pagination
+
+    div.pagination>ul>li*6>a
+                      li.disabled
+                      li.active
+    div.pagination.pagination-center>
+    div.pagination.pagination-right>
+
+### Pager
+
+  basic:
+    ul.pager>li*2>a
+  aligned links
+    ul.pager>li.previous+li.next>a
   
-     
-    
+### Labels and badges
+
+    span.label
+    span.label.label-success
+    span.label.label-warning
+    span.label.label-important
+    span.label.label-info
+    span.label.label-inverse
+
+    span.badge
+    span.badge.badge-success
+    span.badge.badge-warning
+    span.badge.badge-important
+    span.badge.badge-info
+
+### Typography
+
+    div.hero-unit>h1+p+p>a.btn.btn-primary.btn-large
+
+    span.label.label-inverse
+
+  Page header
+
+    div.page-header>h1+small
+
+### Thumbnails
+
+### Alerts
+
+    default:
+      div.alert>button.close+strong
+    options:
+      div.alert.alert-block
+      div.alert.alert-error
+      div.alert.alert-warning
+      div.alert.alert-info
+
+### Progress bars
+
+    basic:
+      div.progress.progress-striped>div.bar (style="width:40%")
+    animated:
+      div.progress.progress-striped.active>div.bar
+    stacked:
+      div.progress>div.bar.bar-success+div.bar.bar-warning+div.bar.bar-danger
+    additional colors:
+      div.progress.progress-info>div.bar
+      div.progress.progress-success>div.bar
+      div.progress.progress-warning>div.bar
+      div.progress.progress-danger>div.bar
+    striped bars:
+      div.progress.progress-info.progress-striped>div.bar
+      div.progress.progress-success.progress-striped>div.bar
+      div.progress.progress-warning.progress-striped>div.bar
+      div.progress.progress-danger.progress-striped>div.bar
+
+
 
 
   	  	
