@@ -296,10 +296,10 @@ bootstrap 标签集
 
 ### Pager
 
-  basic:
-    ul.pager>li*2>a
-  aligned links
-    ul.pager>li.previous+li.next>a
+    basic:
+      ul.pager>li*2>a
+    aligned links:
+      ul.pager>li.previous+li.next>a
   
 ### Labels and badges
 
