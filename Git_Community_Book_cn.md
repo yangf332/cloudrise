@@ -117,7 +117,6 @@ Git Community Book中文版
     git log > ChangeLog
 
 ##远程仓库相关
-　　
     查看远程仓库：$ git remote -v
     添加远程仓库：$ git remote add [name] [url]
     删除远程仓库：$ git remote rm [name]
