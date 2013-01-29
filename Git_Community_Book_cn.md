@@ -93,7 +93,7 @@ Git Community Book中文版
     git fetch bob //抓取远程文件但不合并
     git log -p master..bob/master //查看远程分支历史记录
     git merge bob/master //合并远程分支
-    git push 
+    git push | git push origin master
 
 ##Git标签
    标签对象可以指向任何对象，但通常是一个提交(commit),而第一个是tree
