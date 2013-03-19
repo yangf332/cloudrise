@@ -1,4 +1,3 @@
-
 Git Community Book中文版
 ============================
 
@@ -70,6 +69,7 @@ Git Community Book中文版
     git branch
     git branch branch_name
     git checkout branch_name | git checkout master
+    git push origin new_branch_name
     git merge branch_name
     git diff //查看冲突
     gitk //图形显示项目历史
