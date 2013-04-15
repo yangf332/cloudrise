@@ -2,6 +2,11 @@
 Linux Command
 ============================
 
+## 文件管理
+    chmod -R 777 filename
+
+
+
 ## 查找替换
     grep 'strinng' -r *
     find . -name 'filename'
@@ -25,5 +30,12 @@ Linux Command
 ## 查看目录及子目录大小
     du -sh *
 
+## 比较
+    vimdiff file1 file2
+
+
+
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
+[linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
+
