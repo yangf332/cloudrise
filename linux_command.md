@@ -3,7 +3,17 @@ Linux Command
 ============================
 
 ## 文件管理
+    cat -n filename  // 输出行号
     chmod -R 777 filename
+    ln -s source link
+
+## 文档编辑
+
+## 文件传输
+
+
+
+
 
 
 
