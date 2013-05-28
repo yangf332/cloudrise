@@ -26,6 +26,18 @@ CentOS
     chkconfig --add httpd
     没成功，还不知道原因
 
+## 配置sshd
+    vim /etc/ssh/sshd_config
+    Protocol 2,1 允许SSH1和SSH2连接，建议设置成 Protocal 2
+    vim /etc/hosts.deny
+    sshd:All
+    vim /etc/hosts.allow
+    sshd:All
+    启动：/etc/init.d/sshd start
+    ssh localhost 成功
+    [参考](http://www.cnblogs.com/trams/archive/2012/04/29/2476175.html "参考")
+    
+
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
