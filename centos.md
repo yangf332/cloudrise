@@ -1,7 +1,7 @@
 
-CentOS
+CentOS 和 Ubuntu学习
 ============================
-记录CentOS安装学习的点滴
+记录CentOS和 Ubuntu安装学习的点滴
 
 ## VitualBox安装CentOS
     下载了VitualBox和CentOS ios文件安装。
@@ -37,6 +37,12 @@ CentOS
     ssh localhost 成功
     [参考](http://www.cnblogs.com/trams/archive/2012/04/29/2476175.html "参考")
     
+
+## [U]ubuntu安装curl
+    sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
+    *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
+    Installing new version of config file /etc/php5/conf.d/curl.ini ...
+    重启apache
 
 
 ## 网上资料
