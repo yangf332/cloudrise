@@ -44,6 +44,9 @@ CentOS 和 Ubuntu学习
     Installing new version of config file /etc/php5/conf.d/curl.ini ...
     重启apache
 
+## [U]ubuntu安装gd2
+    sudo apt-get install php5-gd 
+    重启apache
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
