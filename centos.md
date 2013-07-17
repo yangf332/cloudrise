@@ -48,6 +48,13 @@ CentOS 和 Ubuntu学习
     sudo apt-get install php5-gd 
     重启apache
 
+## [U]ubuntu启用rewrite
+    sudo a2enmod rewrite
+	vim /etc/apache2/sites-available/default
+	RewriteEngine on
+    RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
+    RewriteRule ^(.*)$ /index.php$1 [L]
+	
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
