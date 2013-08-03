@@ -66,6 +66,22 @@ Vim 常用操作
     :sp [filename]  // 分割屏幕打开filename文件
     :vsp [filename] //
 
+## .vimrc
+    cd ~
+    vim .vimrc
+    syntax on
+    set nu
+    set ts=4
+    set ruler
+    set expandtab
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set autoindent
+    set encoding=utf-8
+    set termencoding=utf-8
+    set cursorline
+
 
 ##以下内容来自网络其它地方
     [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html?jtss=tsina)
