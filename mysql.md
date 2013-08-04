@@ -57,5 +57,5 @@ mysql
 
 
 ## 网上资料
-[linux](http://www.linux.org/ "linux")
+[画图解释SQL联合语句](http://http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
