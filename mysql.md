@@ -56,6 +56,17 @@ mysql
     SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpwd');
 
 
+## 启用慢查询
+    set global  slow_query_log  = on;
+    +---------------------+---------------------------------+
+    | Variable_name       | Value                           |
+    +---------------------+---------------------------------+
+    | log_slow_queries    | ON                              |
+    | slow_launch_time    | 2                               |
+    | slow_query_log      | ON                              |
+    | slow_query_log_file | /var/run/mysqld/mysqld-slow.log |
+    +---------------------+---------------------------------+
+
 ## 网上资料
 [画图解释SQL联合语句](http://http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
