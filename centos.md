@@ -23,8 +23,20 @@ CentOS 和 Ubuntu学习
     但是不知道为什么，本机还是无法访问虚拟主机的web应用
 
 ## 引导时启动httpd
+    chkconfig --list
     chkconfig --add httpd
-    没成功，还不知道原因
+    chkconfig --level 2345 httpd on
+
+## mysql
+    yum install mysql
+    yum install mysql-server
+    yum install php-mysql
+    /etc/init.d/mysqld start
+    chkconfig --list
+    chkconfig --add mysqld
+    chkconfig --level 2345 mysqld on
+
+
 
 ## 配置sshd
     vim /etc/ssh/sshd_config
