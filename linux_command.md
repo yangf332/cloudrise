@@ -9,18 +9,19 @@ Linux Command
 
 ## 文档编辑
 
-## 文件传输
-
-
-
-
-
-
-
 ## 查找替换
     grep 'strinng' -r *
     find . -name 'filename'
     find . -mtime -1 // 1天以内修改的文件
+    find . -cmin -1  // 1分钟以内修改的文件
+    find . -user root // 查找owner是root的文件
+    find . !-user root 
+    find . -group root // 查找group是root的文件
+    find . -maxdepth 1 -name '*'
+    // 过滤目录
+    find . -path './dontsearchpath' -prune -o -name 'a.txt'
+    find . -size +4k 
+    
 
     sed -i 's/str1/str2/g' `grep str1 -RL ./`  // ./是当前目录
 
