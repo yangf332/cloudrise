@@ -36,7 +36,14 @@ CentOS 和 Ubuntu学习
     chkconfig --add mysqld
     chkconfig --level 2345 mysqld on
 
-
+## mysql自动备份
+    vim bakmysql
+    mysqldump -uroot -ppasswd databasename | gzip > /var/www/html/mysqldata/`date +%Y-%m-%d_%H%M%S`.sql.gz
+    chmod +x bakmysql
+    vim /etc/crontab
+    01 3 * * * root /usr/sbin/bakmysql // 每天3点执行
+    service crond start
+    chkconfig --level 2345 crond on
 
 ## 配置sshd
     vim /etc/ssh/sshd_config
@@ -48,7 +55,7 @@ CentOS 和 Ubuntu学习
     启动：/etc/init.d/sshd start
     ssh localhost 成功
     [参考](http://www.cnblogs.com/trams/archive/2012/04/29/2476175.html "参考")
-    
+
 
 ## [U]ubuntu安装curl
     sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
