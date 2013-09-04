@@ -70,6 +70,8 @@ CentOS 和 Ubuntu学习
     ssh localhost 成功
     [参考](http://www.cnblogs.com/trams/archive/2012/04/29/2476175.html "参考")
 
+## 安装rzsz
+    yum install lrzsz
 
 ## [U]ubuntu安装curl
     sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
