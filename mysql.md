@@ -67,6 +67,10 @@ mysql
     | slow_query_log_file | /var/run/mysqld/mysqld-slow.log |
     +---------------------+---------------------------------+
 
+## 报错问题
+    1.  The used SELECT statements have a different number of columns
+    在使用union查询时，多个查询语句的查询字段不一致
+
 ## 网上资料
 [画图解释SQL联合语句](http://http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
