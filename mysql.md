@@ -55,8 +55,57 @@ mysql
 ## 修改密码
     SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpwd');
 
+## show
+    show variables;      -- 查看配置信息
+    show global status;  -- 查看MySQL服务器运行的各种状态值
+    show variables like 'max_connections';  
+    show global status like 'max_used_connections';  
+    show variables like 'key_buffer_size';  
+    +-----------------+----------+  
+    | Variable_name   | Value    |  
+    +-----------------+----------+  
+    | key_buffer_size | 67108864 |  
+    +-----------------+----------+  
+    show global status like 'key_read%'; 
+    +-------------------+----------+  
+    | Variable_name     | Value    |  
+    +-------------------+----------+  
+    | Key_read_requests | 25629497 |  
+    | Key_reads         | 66071    |  
+    +-------------------+----------+  
+    key_cache_miss_rate ＝ Key_reads / Key_read_requests * 100% =0.27% 
+    show variables like 'thread_cache_size';
+    show global status like 'qcache%';
+    show global status like 'sort%';
+    show global status like 'open_files';
+    show variables like 'open_files_limit';
+    show global status like 'table_locks%';
+
+## 表扫描情况
+    show global status like 'handler_read%';  
+    +-----------------------+-----------+  
+    | Variable_name         | Value     |  
+    +-----------------------+-----------+  
+    | Handler_read_first    | 108763    |  
+    | Handler_read_key      | 92813521  |  
+    | Handler_read_next     | 486650793 |  
+    | Handler_read_prev     | 688726    |  
+    | Handler_read_rnd      | 9321362   |  
+    | Handler_read_rnd_next | 153086384 |  
+    +-----------------------+-----------+  
+    show global status like 'com_select';  
+    +---------------+---------+  
+    | Variable_name | Value   |  
+    +---------------+---------+  
+    | Com_select    | 2693147 |  
+    +---------------+---------+  
+    表扫描率 ＝ Handler_read_rnd_next / Com_select 
+    如果表扫描率超过4000，说明进行了太多表扫描，很有可能索引没有建好.
+
 
 ## 启用慢查询
+    show variables like '%slow%';
+    show global status like '%slow%';  
     set global  slow_query_log  = on;
     +---------------------+---------------------------------+
     | Variable_name       | Value                           |
@@ -72,5 +121,7 @@ mysql
     在使用union查询时，多个查询语句的查询字段不一致
 
 ## 网上资料
-[画图解释SQL联合语句](http://http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
+[通过show status优化mysql](http://lxneng.iteye.com/blog/451985 "通过show status优化mysql")
+
+[画图解释SQL联合语句](http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
