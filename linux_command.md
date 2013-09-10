@@ -44,9 +44,21 @@ Linux Command
 ## 比较
     vimdiff file1 file2
 
+## curl
+    curl -v http://www.xxx.com?p1=1&p2=2
+    curl --data 'data=xxx' http://www.xxx.com
+    curl -X DELETE www.xxx.com
+    curl --form upload=@localfilename --form press=ok www.xxx.com
+    curl --cookie 'name=xxx' www.xxx.com
+    curl --header 'xxx: xxxx' www.xxx.com
+    echo '<?xml version="1.0"><xxx></xxx></xml>' | ccurl -X POST -H 'Content-type:text/xml' -d @- www.xxx.com
+
 
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
+
+[curl网站开发指南](http://www.ruanyifeng.com/blog/2011/09/curl.html "curl网站开发指南")
+
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
 
