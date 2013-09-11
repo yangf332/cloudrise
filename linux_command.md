@@ -51,7 +51,7 @@ Linux Command
     curl --form upload=@localfilename --form press=ok www.xxx.com
     curl --cookie 'name=xxx' www.xxx.com
     curl --header 'xxx: xxxx' www.xxx.com
-    echo '<?xml version="1.0"><xxx></xxx></xml>' | ccurl -X POST -H 'Content-type:text/xml' -d @- www.xxx.com
+    echo '<?xml version="1.0"><xxx></xxx></xml>' | curl -X POST -H 'Content-type:text/xml' -d @- www.xxx.com
 
 
 
