@@ -39,6 +39,10 @@ mysql
     update tablename set field1 = 1 where field2 = 2;
     replace into tablename(field1, field2) values (1, 2);
 
+## union、union all
+    select * from tb union select * from tb1;      -- 会筛选掉重复的记录
+    select * from tb union all select * from tb1;  -- 仅仅简单合并，会返回重复记录
+
 ## modify
     alter table tablename rename tableothername;
     alter table tablename modify a char(20);
