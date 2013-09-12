@@ -35,9 +35,13 @@ mysql
     select * from tablename;
     select * from tablename where a = 1;
     select * from tablename order by columns desc;
-    insert into tablename(field1, field2) values (1, 2);
     update tablename set field1 = 1 where field2 = 2;
     replace into tablename(field1, field2) values (1, 2);
+
+## insert 
+    insert into tablename(field1, field2) values (1, 2);
+    insert into table2(fileld1, filed2, ...) select value1, value2, ... from table1;
+    select value1, value2, ... into table2 from table1; 
 
 ## union、union all
     select * from tb union select * from tb1;      -- 会筛选掉重复的记录
