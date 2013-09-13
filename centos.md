@@ -73,6 +73,10 @@ CentOS 和 Ubuntu学习
 ## 安装rzsz
     yum install lrzsz
 
+
+## [U]ubuntu安装apache, php
+    sudo apt-get update
+
 ## [U]ubuntu安装curl
     sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
     *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
@@ -89,7 +93,10 @@ CentOS 和 Ubuntu学习
 	RewriteEngine on
     RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
     RewriteRule ^(.*)$ /index.php$1 [L]
-	
+
+## [U]ubuntu开启80端口
+    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
