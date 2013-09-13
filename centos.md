@@ -75,16 +75,18 @@ CentOS 和 Ubuntu学习
 
 
 ## [U]ubuntu安装apache, php
-    sudo apt-get update
+    apt-get update
+    apt-get install apache2
+    apt-get install mysql-server
+    apt-get install php5, php5-mysql, php5-gd
+
+## [U]ubuntu启动apache
+    sudo /etc/init.d/apache2 start
 
 ## [U]ubuntu安装curl
     sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
     *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
     Installing new version of config file /etc/php5/conf.d/curl.ini ...
-    重启apache
-
-## [U]ubuntu安装gd2
-    sudo apt-get install php5-gd 
     重启apache
 
 ## [U]ubuntu启用rewrite
@@ -94,7 +96,7 @@ CentOS 和 Ubuntu学习
     RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
     RewriteRule ^(.*)$ /index.php$1 [L]
 
-## [U]ubuntu开启80端口
+## [U]ubuntu开启80端口，默认关闭
     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 ## 网上资料
