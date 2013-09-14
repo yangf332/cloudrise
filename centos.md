@@ -34,7 +34,6 @@ CentOS 和 Ubuntu学习
     yum install php
     /etc/init.d/httpd restart
     在/var/www/html下添加php文件，写入phpinfo();可以看到内容了
-    但是不知道为什么，本机还是无法访问虚拟主机的web应用
 
 ## 引导时启动httpd
     chkconfig --list
@@ -96,7 +95,7 @@ CentOS 和 Ubuntu学习
     RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
     RewriteRule ^(.*)$ /index.php$1 [L]
 
-## [U]ubuntu开启80端口，默认关闭
+## [U]ubuntu开启默认关闭的80端口
     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 ## 网上资料
