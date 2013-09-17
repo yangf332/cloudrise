@@ -98,6 +98,18 @@ CentOS 和 Ubuntu学习
 ## [U]ubuntu开启默认关闭的80端口
     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
+## [U]ufw防火墙
+    apt-get install ufw
+    ufw enable
+    ufw default deny
+    ufw allow 22/tcp
+    ufw allow from 10.0.0.1
+    ufw deny 80
+    ufw delete deny 80
+    ufw status
+
+
+
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
