@@ -82,6 +82,13 @@ Vim 常用操作
     set termencoding=utf-8
     set cursorline
 
+## .bashrc
+    cd ~
+    vim .bashrc
+    alias ll='ls -l --color=tty'
+    alias ls='ls --color=tty'
+    alias grep='grep --color=tty'
+     
 
 ##以下内容来自网络其它地方
     [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html?jtss=tsina)
