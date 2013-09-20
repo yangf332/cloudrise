@@ -2,6 +2,13 @@
 PHP应用程序安全编程
 ============================
 
+## 二 处理错误
+    striptags()
+	htmlentities(), htmlspecialchars()
+
+## 三 系统调用
+    exec(),system()及backtick的风险
+
 ## 六 文件系统访问
     如果允许用户上传文件，必须考虑放在特定的目录中，并将文件路径封装，防止用户访问系统文件，如：
         /etc/passwd，处理/www/uploaded_files/etc/passwd，不存在
