@@ -25,6 +25,15 @@ PHP应用程序安全编程
 ## 十 跨站式脚本编程
     XSS：反射式、存储式
 
+## 文件包含漏洞
+    include(), require(), include_once(), require_once()
+    当这些函数包含一些新文件时，该文件将作为PHP代码执行，PHP内核并不会在意被包含的文件是什么类型。即使被包含的是txt、图片或远程URL，也都将作为PHP代码执行。
+    解决方案：配置open_basedir
+    1) Apache httpd.conf Directory php_admin_value open_basedir /usr/local/apache/htdocs/
+    2) Apache httpd.conf VirtualHost php_admin_value open_basedir /usr/local/apache/htdocs/ 不建议
+	3）php.ini open_basedir = ''
+
+
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
 
