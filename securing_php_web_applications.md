@@ -33,6 +33,12 @@ PHP应用程序安全编程
     2) Apache httpd.conf VirtualHost php_admin_value open_basedir /usr/local/apache/htdocs/ 不建议
 	3）php.ini open_basedir = ''
 
+## 变量覆盖漏洞
+    变量如果未初始化，且能被用户所控制，可能会有安全问题。在PHP中，register_globals为ON时尤其严重。
+    extract(array, [EXTR_OVERWRITE|EXTR_SKIP]),使用EXTR_SKIP以确保变量不被覆盖
+    import_request_variables()
+    parse_str(), mb_parse_str()
+    
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
