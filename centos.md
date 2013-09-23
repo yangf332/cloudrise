@@ -21,6 +21,9 @@ CentOS 和 Ubuntu学习
     cat /proc/cpuinfo | grep physical
     // 系统运行位数
     getconf LONG_BIT
+    // 查看语言环境变量
+    locale
+    cat /etc/default/locale
 
 ## sudo提权提示“xx用户不在sudoers文件中，此事将被报告”
     解决方法：用root编辑/etc/sudoers文件，添加一行：
@@ -82,11 +85,21 @@ CentOS 和 Ubuntu学习
 ## [U]ubuntu启动apache
     sudo /etc/init.d/apache2 start
 
+## [U]Apache创建一个新的虚拟主机(复制default并启用)
+    cd /etc/apache2/sites-available/
+    sudo cp default www.test.com
+    vim www.test.com
+    sudo a2dissite default && sudo a2ensite www.test.com
+    sudo /etc/init.d/apache2 restart
+
 ## [U]ubuntu安装curl
     sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
     *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
     Installing new version of config file /etc/php5/conf.d/curl.ini ...
     重启apache
+
+## [U]HTTPS的实现
+
 
 ## [U]ubuntu启用rewrite
     sudo a2enmod rewrite
@@ -112,5 +125,9 @@ CentOS 和 Ubuntu学习
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
+
+[《Ubuntu Server最佳方案》]
+
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
+
 
