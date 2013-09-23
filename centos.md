@@ -100,6 +100,11 @@ CentOS 和 Ubuntu学习
 
 ## [U]HTTPS的实现
 
+## [U]启用压缩
+
+## [U]使用缓存（mod_cache）
+
+## [U]不要以root身份运行Apache
 
 ## [U]ubuntu启用rewrite
     sudo a2enmod rewrite
