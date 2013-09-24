@@ -76,6 +76,7 @@ CentOS 和 Ubuntu学习
     yum install lrzsz
 
 
+
 ## [U]ubuntu安装apache, php
     apt-get update
     apt-get install apache2
@@ -97,6 +98,11 @@ CentOS 和 Ubuntu学习
     *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
     Installing new version of config file /etc/php5/conf.d/curl.ini ...
     重启apache
+
+## [U]ubuntu安装ssg
+    sudo apt-get install openssh-server
+    /etc/init.d/ssh start
+    ssh localhost
 
 ## [U]HTTPS的实现
 
