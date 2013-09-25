@@ -132,7 +132,27 @@ CentOS 和 Ubuntu学习
     ufw delete deny 80
     ufw status
 
+## [U]用Apache支持Python
+    sudo apt-get intall libapache2-mod-python
+    支持Python有两种方式：后者支持html中嵌入py代码
+        Publisher Handler:
+            <Directory /var/www/>
+                AddHandler mod python .py
+                PythonHandler mod_python.publisher
+                PythonDebug On
+            </Directory>
+        PSP Handler:
+            <Directory /var/www/>
+                AddHandler mod python .psp
+                PythonHandler mod_python.psp
+                PythonDebug On
+            </Directory>
+    sudo /etc/init.d/apache2 restart
 
+## [U]用Django开发Web应用
+    sudo apt-get install python-django
+    django-admin startproject mysite
+    
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
