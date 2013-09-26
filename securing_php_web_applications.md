@@ -38,7 +38,16 @@ PHP应用程序安全编程
     extract(array, [EXTR_OVERWRITE|EXTR_SKIP]),使用EXTR_SKIP以确保变量不被覆盖
     import_request_variables()
     parse_str(), mb_parse_str()
-    
+
+## 认证与会话
+    认证 Authentication
+    授权 Authorization
+    认证的目的是为了认出用户是谁，而授权的目的是为了决定用户能够做什么。
+    单因素/多因素认证
+    Session Fixation攻击：解决方法是，在登录完成之后，重写SessionID。
+    Session保持攻击：
+    //TODO
+    单点登录
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
