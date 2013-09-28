@@ -46,8 +46,8 @@ PHP应用程序安全编程
     单因素/多因素认证
     Session Fixation攻击：解决方法是，在登录完成之后，重写SessionID。
     Session保持攻击：
-    //TODO
-    单点登录
+    单点登录：Single Sign On，用户只需要登录一次，就可以访问所有的系统。
+
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
