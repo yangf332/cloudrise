@@ -129,7 +129,7 @@ CentOS 和 Ubuntu学习
     ufw allow 22/tcp
     ufw allow from 10.0.0.1
     ufw deny 80
-    ufw delete deny 80
+    ufw delete deny 80/tcp
     ufw status
 
 ## [U]用Apache支持Python
@@ -153,6 +153,16 @@ CentOS 和 Ubuntu学习
     sudo apt-get install python-django
     django-admin startproject mysite
     
+## [U]locale-gen
+    locale-gen zh_CN.UTF-8  // 编译本地定义文件的一个列表
+    环境变量：
+    LC_CTYPE     - Character classification and case conversion.
+    LC_COLLATE   - Collation order.
+    LC_TIME      - Date and time formats.
+    LC_NUMERIC   - Non-monetary numeric formats.
+    LC_MONETARY  - Monetary formats.
+    LC_MESSAGES  - Formats of informative and diagnostic messages and interactive responses.
+
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
