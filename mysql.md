@@ -36,6 +36,8 @@ mysql
     select * from tablename where a = 1;
     select * from tablename order by columns desc;
     update tablename set field1 = 1 where field2 = 2;
+    update tablename set field1 = substring(field1, 3);
+    update tablename set field1 = concat('pre', field1);
     replace into tablename(field1, field2) values (1, 2);
 
 ## insert 
