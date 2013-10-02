@@ -10,6 +10,7 @@ Ubuntu
 ## 官方下载
     http://releases.ubuntu.com/
 
+
 ## 安装
 
 ## 远程管理
@@ -29,8 +30,46 @@ Ubuntu
     // 认证日志
     grep sshd /var/log/auth.log.0
 
-## 
+## 帐号管理
+    sudo useradd -m -s /bin/bash newuser
+    passwd newuser
+    groupadd ftp                          // 添加组
+    usermod -g www newuser                // 添加帐号到组
+    usermod -G www,ftp,backup newuser     // 添加帐号到多个组
+    id newuser && groups newuser          // 验证
+    // sudoer和权限
+    sudo vim /etc/sudoers
+    newuser ALL=(ALL:root) /usr/bin/find, /bin/rm
+    // TODO 别名设置
+    // 删除
+    sudo userdel newuser
 
+## 查看系统信息
+    // lsb是Linux Standard Base的缩写，lsb_release命令用来显示LSB和特定版本的相关信息
+    lsb_release -a  
+    // Linux查看版本当前操作系统内核信息
+    uname -a
+    // 查看版本当前操作系统发行版信息
+    cat /etc/issue
+    cat /proc/version
+    // 查看CPU信息
+    cat /proc/cpuinfo | grep name
+    cat /proc/cpuinfo | grep physical
+    // 系统运行位数
+    getconf LONG_BIT
+    // 查看语言环境变量
+    locale
+    cat /etc/default/locale
+
+## locale-gen
+    locale-gen zh_CN.UTF-8  // 编译本地定义文件的一个列表
+    环境变量：
+    LC_CTYPE     - Character classification and case conversion.
+    LC_COLLATE   - Collation order.
+    LC_TIME      - Date and time formats.
+    LC_NUMERIC   - Non-monetary numeric formats.
+    LC_MONETARY  - Monetary formats.
+    LC_MESSAGES  - Formats of informative and diagnostic messages and interactive responses.
 
 
 ## 网上资料
