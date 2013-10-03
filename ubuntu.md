@@ -14,35 +14,53 @@ Ubuntu
 ## 安装
 
 ## 远程管理
-    sudo apt-get install openssh-server
+    apt-get install openssh-server
     ssh localhost   // 测试可用
     ssh user@host
     // 禁用密码，使用公钥登录
     ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
     or
     ssh-copy-id -i .ssh/id_rsa.pub user@host
-    sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
-    sudo vim /etc/ssh/sshd_config
+    cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+    vim /etc/ssh/sshd_config
         PermitRootLogin no
         PasswordAuthentication no
         UsePAM no
-    sudo /etc/init.d/ssh restart
+    /etc/init.d/ssh restart
     // 认证日志
     grep sshd /var/log/auth.log.0
 
 ## 帐号管理
-    sudo useradd -m -s /bin/bash newuser
+    useradd -m -s /bin/bash newuser
     passwd newuser
     groupadd ftp                          // 添加组
     usermod -g www newuser                // 添加帐号到组
     usermod -G www,ftp,backup newuser     // 添加帐号到多个组
     id newuser && groups newuser          // 验证
     // sudoer和权限
-    sudo vim /etc/sudoers
+    vim /etc/sudoers
     newuser ALL=(ALL:root) /usr/bin/find, /bin/rm
     // TODO 别名设置
     // 删除
-    sudo userdel newuser
+    userdel newuser
+
+## 安装LAMP
+    apt-get install apache2
+    apt-get install mysql-server
+    apt-get install php5
+    apt-get install php5-mysql
+    
+## 安装chkconfig
+    apt-get install chkconfig
+    chkconfig --level 2345 apache2 on
+    chkconfig --level 2345 mysql on    
+
+## 配置目录权限
+    chown -R user:www-data /var/www
+    chmod -R 774 /var/www 
+
+
+
 
 ## 查看系统信息
     // lsb是Linux Standard Base的缩写，lsb_release命令用来显示LSB和特定版本的相关信息
