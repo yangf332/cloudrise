@@ -59,8 +59,21 @@ Ubuntu
     chown -R user:www-data /var/www
     chmod -R 774 /var/www 
 
+## 配置Apache
+    a2enmod        // 配置模块
+    a2dismod       // 关闭配置模块
+    cd /etc/apache2/sites-available/
+    cp default www.test.com
+    vim www.test.com
+    a2dissite default && a2ensite www.test.com
+    /etc/init.d/apache2 start
 
-
+## 启用rewrite
+    a2enmod rewrite
+    vim /etc/apache2/sites-available/www.test.com
+    RewriteEngine on
+    RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
+    RewriteRule ^(.*)$ /index.php$1 [L]
 
 ## 查看系统信息
     // lsb是Linux Standard Base的缩写，lsb_release命令用来显示LSB和特定版本的相关信息
