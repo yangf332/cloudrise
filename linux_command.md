@@ -53,6 +53,11 @@ Linux Command
     curl --header 'xxx: xxxx' www.xxx.com
     echo '<?xml version="1.0"><xxx></xxx></xml>' | curl -X POST -H 'Content-type:text/xml' -d @- www.xxx.com
 
+## base64
+    echo 'string' | base64
+    echo 'coding' | base64 -D
+    base64 file
+    cat file | base64
 
 
 ## 网上资料
