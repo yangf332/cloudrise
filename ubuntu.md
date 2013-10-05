@@ -102,6 +102,16 @@ Ubuntu
     LC_MONETARY  - Monetary formats.
     LC_MESSAGES  - Formats of informative and diagnostic messages and interactive responses.
 
+## 分析CPU瓶颈
+    apt-get install sysstat
+    mpstat         // mpstat 不但能查看所有CPU的平均信息，还能查看指定CPU的信息。
+    vmstat         // 只能查看所有CPU的平均信息；查看cpu队列信息；
+    iostat         // 只能查看所有CPU的平均信息。
+    sar
+    uptime 
+    w
+    top
+
 
 ## 网上资料
 [《Ubuntu Server最佳方案》]
@@ -111,4 +121,4 @@ Ubuntu
 
 [forum.ubuntu.org.cn](http://forum.ubuntu.org.cn/ "forum.ubuntu.org.cn")
 
-
+[Linux命令----分析CPU的瓶颈](http://space.itpub.net/8554499/viewspace-580300 "http://space.itpub.net/8554499/viewspace-580300")
