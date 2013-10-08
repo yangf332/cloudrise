@@ -20,7 +20,7 @@ Web开发资源
 
 [逼真的雨滴效果](http://maroslaw.github.io/rainyday.js/)
 
-[Web Tracing Framework：开源 JS 应用性能跟踪工具，Google出口](http://google.github.io/tracing-framework/index.html)
+[Web Tracing Framework：开源 JS 应用性能跟踪工具，Google出品](http://google.github.io/tracing-framework/index.html)
 
 [拟物翻页效果](http://www.turnjs.com/)
 
@@ -28,11 +28,15 @@ Web开发资源
 
 [字体排版效果](http://tympanus.net/Development/Arctext/)
 
-[大名鼎鼎的图表库](http://www.highcharts.com/)
+[大名鼎鼎的图表库highcharts](http://www.highcharts.com/)
+
+[HTML5设备模型](http://aarnis.com/demo.html)
+
+[超棒的JS移动设备滑动内容幻灯实现 - Swiper](http://www.gbin1.com/technology/javascript/20130620-mobile-js-slider-swiper/)
 
 
 ## CSS
-[在线CSS Sprite合并工具，腾讯AlloyTeam出口](https://github.com/AlloyTeam/gopng)
+[在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 
 
 ## git
