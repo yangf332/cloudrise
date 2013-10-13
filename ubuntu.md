@@ -113,6 +113,20 @@ Ubuntu
     top
 
 
+## 其它
+
+#### 理解inode
+    inode是Unix/Linux文件系统和硬盘存储的基础
+    inode包含信息：文件的字节数、UID、GID、权限、三个时间戳、链接数、block位置
+    stat filename  // 查看inode
+    每个inode大小为128字节或256字节。每1-2KB设置一个inode。
+    df -i          // 查看inode总数
+    dumpe2fs -h /dev/hda | grep "Inode size"   // 查看每个inode节点大小
+    由于每个文件都必须有一个inode，因此有可能发生inode已经用光，但是硬盘还未存满的情况。这时，就无法在硬盘上创建新文件。
+    每个inode都有一个号码，操作系统用inode号码来识别不同的文件。
+    ls -i filename  // 查看文件名对应的inode编号
+    
+
 ## 网上资料
 [《Ubuntu Server最佳方案》]
 
@@ -122,3 +136,6 @@ Ubuntu
 [forum.ubuntu.org.cn](http://forum.ubuntu.org.cn/ "forum.ubuntu.org.cn")
 
 [Linux命令----分析CPU的瓶颈](http://space.itpub.net/8554499/viewspace-580300 "http://space.itpub.net/8554499/viewspace-580300")
+
+
+[inode](http://www.ruanyifeng.com/blog/2011/12/inode.html "inode")
