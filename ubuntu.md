@@ -125,7 +125,11 @@ Ubuntu
     由于每个文件都必须有一个inode，因此有可能发生inode已经用光，但是硬盘还未存满的情况。这时，就无法在硬盘上创建新文件。
     每个inode都有一个号码，操作系统用inode号码来识别不同的文件。
     ls -i filename  // 查看文件名对应的inode编号
-    
+    作用：
+        1. find . -inum INODE_NUM -delete   // 通过inode号删除文件
+        2. 移动或重命名文件，只改变文件名，不影响inode号
+        3. 通过inode识别文件，实现运行中更新
+
 
 ## 网上资料
 [《Ubuntu Server最佳方案》]
