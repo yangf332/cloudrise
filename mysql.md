@@ -55,6 +55,12 @@ mysql
     alter table tablename add addfield timestamp;
     alter table tablename drop column b;
 
+## delete
+    -- 可以选择删除；返回删除记录数；
+    delete from tablename;
+    -- 只能全部删除；返回0；自增字段恢复成初始值；快；
+    truncate tablename;
+
 ## 时间戳
     select current_timestamp, current_timestamp();
     
