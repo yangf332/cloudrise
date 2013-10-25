@@ -1,4 +1,3 @@
-
 mysql
 ============================
 记录mysql安装学习的点滴
@@ -151,6 +150,9 @@ mysql
     set character_set_database=utf8;
     set character_set_results=utf8;
     set character_set_server=utf8;
+
+## History
+    cat ~/.mysql_history
 
 ## 报错问题
     1.  The used SELECT statements have a different number of columns
