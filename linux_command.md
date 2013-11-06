@@ -59,6 +59,16 @@ Linux Command
     base64 file
     cat file | base64
 
+## 标准编译安装
+    wget http://xxx/xxx.tar.gz
+    tar -zxvf xxx.tar.gz
+    tar -jxvf xxx.tar.bz2
+    cd xxx/
+    ./configure --prefix-/opt/xxx  // 配置软件特性，检查编译环境，生成 Makefile文件
+    make                           // 根据 Makefile 编译源代码
+    sudo make install              // 将编译完成的程序安装到系统中。通常需要 root权限
+    make clean                     // 清除源代码目录中的编译结果
+
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
@@ -66,4 +76,6 @@ Linux Command
 [curl网站开发指南](http://www.ruanyifeng.com/blog/2011/09/curl.html "curl网站开发指南")
 
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
+
+[标准编译安装](http://i.linuxtoy.org/docs/guide/ch18s02.html "标准编译安装")
 
