@@ -154,6 +154,17 @@ mysql
 ## History
     cat ~/.mysql_history
 
+## 外键
+    InnoDB引擎类型的表支持外键约束
+    外键列必须建立索引（MysQL 4.1.2以后版本会自动生成）
+    外键关系的两个表的列必须数据类型相似
+    使两张表关联，保证数据的一致性和实现一些级联操作
+    外键的定义语法：
+    [CONSTRAINT symbol] FOREIGN KEY [id] (index_col_name, ...)
+    REFERENCES tbl_name (index_col_name, ...)
+    [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
+    [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
+
 ## 报错问题
     1.  The used SELECT statements have a different number of columns
     在使用union查询时，多个查询语句的查询字段不一致
