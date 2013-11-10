@@ -34,6 +34,7 @@ Web开发资源
 
 [超棒的JS移动设备滑动内容幻灯实现 - Swiper](http://www.gbin1.com/technology/javascript/20130620-mobile-js-slider-swiper/)
 
+[artDialog](https://github.com/aui/artDialog)
 
 ## CSS
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
@@ -58,5 +59,8 @@ Web开发资源
 
 [某人的工具集，膜拜啊](http://f2e.im/static/pages/nav/index.html#6755344-tsina-1-50251-72fb614e7130783e23f259bf5de6db3a)
 
+
+## ruby on rails
+http://guides.rubyonrails.org/
 
 
