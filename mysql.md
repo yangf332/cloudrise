@@ -153,6 +153,10 @@ mysql
 
 ## History
     cat ~/.mysql_history
+    show variables like 'log_bin';  -- 看是否启用了日志
+    show master status;
+    show variables like 'expire_logs_days';
+    set global expire_logs_days = 20 ;
 
 ## 外键
     InnoDB引擎类型的表支持外键约束
