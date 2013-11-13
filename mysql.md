@@ -66,6 +66,8 @@ mysql
 ## 导出导入数据库
     mysqldump -uuser -p databasename > /tmp/databasename.sql
     source /tmp/databasename.sql
+    导出excel
+    select * into outfile '/path/filename.xls' from TABLENAME
 
 ## 修改密码
     SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpwd');
