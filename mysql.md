@@ -63,6 +63,10 @@ mysql
 ## 时间戳
     select current_timestamp, current_timestamp();
     
+## 其它
+    select lpad('100015', 8, 0);
+    select rpad('100015', 8, 0);
+
 ## 导出导入数据库
     mysqldump -uuser -p databasename > /tmp/databasename.sql
     source /tmp/databasename.sql
