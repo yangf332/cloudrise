@@ -68,6 +68,18 @@ Ubuntu
     a2dissite default && a2ensite www.test.com
     /etc/init.d/apache2 start
 
+## 增加新的端口
+    vim /etc/apache2/ports.conf
+    NameVirtualHost *:80
+    NameVirtualHost *:8080
+    Listen 80
+    Listen 8080
+    vim /etc/apache2/sites-available/[xxx]
+    <VirutalHost *:8080>
+    ...
+    </VirutalHost>
+    重启apache2
+
 ## 启用rewrite
     a2enmod rewrite
     vim /etc/apache2/sites-available/www.test.com
@@ -113,6 +125,8 @@ Ubuntu
     top
 
 
+
+
 ## 其它
 
 #### 理解inode
@@ -129,6 +143,11 @@ Ubuntu
         1. find . -inum INODE_NUM -delete   // 通过inode号删除文件
         2. 移动或重命名文件，只改变文件名，不影响inode号
         3. 通过inode识别文件，实现运行中更新
+
+## 错误解决
+    1. apache2: Could not reliably determine the server 's fully qualified domain name, using 127.0.1.1 for ServerName
+    vim /etc/apache2/httpd.conf
+    ServerName localhost
 
 
 ## 网上资料
