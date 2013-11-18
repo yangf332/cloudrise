@@ -178,6 +178,11 @@ mysql
 ## 报错问题
     1.  The used SELECT statements have a different number of columns
     在使用union查询时，多个查询语句的查询字段不一致
+    2. 找不到mysql.sock，使用find / 也不行
+    /etc/init.d/mysql stop
+    mysql -uroot -p
+    报错:Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
+    找到文件所在位置
 
 ## 网上资料
 [通过show status优化mysql](http://lxneng.iteye.com/blog/451985 "通过show status优化mysql")
