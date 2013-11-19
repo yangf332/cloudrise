@@ -74,6 +74,9 @@ Git Community Book中文版
     git diff //查看冲突
     gitk //图形显示项目历史
     git branch -d local | git branch -D local //delete
+    # 迁出某个commit 
+    git log
+    git checkout commit_sha1 
 
 ##查看历史
     git log
