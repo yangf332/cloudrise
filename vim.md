@@ -65,6 +65,8 @@ Vim 常用操作
     |
     :sp [filename]  // 分割屏幕打开filename文件
     :vsp [filename] //
+    行首加入内容  :%s/^/addtext
+    行尾加入内容  :%s/$/addtext
 
 ## .vimrc
     cd ~
