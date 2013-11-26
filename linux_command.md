@@ -69,6 +69,8 @@ Linux Command
     sudo make install              // 将编译完成的程序安装到系统中。通常需要 root权限
     make clean                     // 清除源代码目录中的编译结果
 
+## 其它
+    cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30 看看你最常用的命令是什么
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
@@ -79,3 +81,4 @@ Linux Command
 
 [标准编译安装](http://i.linuxtoy.org/docs/guide/ch18s02.html "标准编译安装")
 
+[commandlinefu](http://beta.commandlinefu.cn/ "commandlineful")
