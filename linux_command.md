@@ -71,6 +71,14 @@ Linux Command
 
 ## 其它
     cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30 看看你最常用的命令是什么
+    回到刚才的目录
+    cd - 
+    找出10个大文件
+    du -sh * | sort -rh | head
+    设置文件密码
+    vim -x
+    生成.bak方式
+    cp filename{,.bak}
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
