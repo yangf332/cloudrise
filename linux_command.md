@@ -23,7 +23,7 @@ Linux Command
     find . -size +4k 
     
 
-    sed -i 's/str1/str2/g' `grep str1 -RL ./`  // ./是当前目录
+    sed -i 's/str1/str2/g' `grep str1 -rl ./`  // ./是当前目录
 
 ## 传输
     上传：rz -bey // receive
