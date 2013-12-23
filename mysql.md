@@ -156,6 +156,8 @@ mysql
     set character_set_database=utf8;
     set character_set_results=utf8;
     set character_set_server=utf8;
+    或者：
+    set names utf8;
 
 ## History
     cat ~/.mysql_history
@@ -181,8 +183,14 @@ mysql
     2. 找不到mysql.sock，使用find / 也不行
     /etc/init.d/mysql stop
     mysql -uroot -p
-    报错:Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
+    报错:Can not connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
     找到文件所在位置
+    3. 编码格式为latin1，设置为utf8后，重新登录又恢复
+    解决方法是修改配置:
+    vim /etc/mysql/my.cnf
+    在client节点下添加：  default-character-set=utf8 
+    在mysqld节点下添加：   character-set-server=utf8 ；  collation-server=utf8_general_ci
+    保存后重启mysql
 
 ## 网上资料
 [通过show status优化mysql](http://lxneng.iteye.com/blog/451985 "通过show status优化mysql")
