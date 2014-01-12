@@ -79,6 +79,7 @@ Linux Command
     vim -x
     生成.bak方式
     cp filename{,.bak}
+    who -b   # Time of last system boot
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
