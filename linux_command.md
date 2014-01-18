@@ -80,6 +80,7 @@ Linux Command
     生成.bak方式
     cp filename{,.bak}
     who -b   # Time of last system boot
+    printenv # 打印所有环境变量
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
