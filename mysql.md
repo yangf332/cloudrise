@@ -177,6 +177,13 @@ mysql
     [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
     [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
 
+## InnoDB和MyISAM
+    MyISAM 是MySQL中默认的存储引擎
+    InnoDB 具有提交，回滚和崩溃恢复的能力。处理大数据量性能好。
+    MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率对应提高了不少。而Innodb是索引和数据是紧密捆绑的，没有使用压缩从而会造成Innodb比MyISAM体积庞大不小。
+    InnoDB 中不保存表的具体行数。执行select count(*) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。
+    MyISAM的insert性能高；InnoDB针对索引的update性能高
+
 ## 报错问题
     1.  The used SELECT statements have a different number of columns
     在使用union查询时，多个查询语句的查询字段不一致
@@ -193,6 +200,8 @@ mysql
     保存后重启mysql
 
 ## 网上资料
+[InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
+
 [通过show status优化mysql](http://lxneng.iteye.com/blog/451985 "通过show status优化mysql")
 
 [画图解释SQL联合语句](http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
