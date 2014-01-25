@@ -91,6 +91,13 @@ Vim 常用操作
     alias ls='ls --color=tty'
     alias grep='grep --color=tty'
      
+## vim中执行shell命令
+    1 :!command
+    2 :r !command 将shell命令的结果插入到当前行下一行 eg - :r !date 插入系统时间
+    3 :startline,endline!command  eg - :1,$!sort
+    4 :startline,endlinew!command 结果不输出在编辑文件中
 
 ##以下内容来自网络其它地方
-    [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html?jtss=tsina)
+[简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html?jtss=tsina)
+
+[vim中执行shell命令](http://blog.csdn.net/topgun_chenlingyun/article/details/8013115 "vim中执行shell命令")

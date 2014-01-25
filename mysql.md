@@ -206,3 +206,4 @@ mysql
 
 [画图解释SQL联合语句](http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
+[手册](http://dev.mysql.com/doc/refman/5.1/zh/index.html "手册")
