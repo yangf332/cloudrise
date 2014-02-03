@@ -26,7 +26,7 @@ mysql
         id int(11) NOT NULL AUTO_INCREMENT,
         email varchar(255) NOT NULL,
         time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPATE CURRENT_TIMESTAMP,
-        PRIMARY KEY ('id'),
+        PRIMARY KEY (id),
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8
 
 
