@@ -116,6 +116,9 @@ HTTP报文像河水一样流动。术语流入（inbound）和流出（outbound�
       413 Request Entity Too Large
       414 Request URI Too Long
     500～599 服务器错误状态码
+      502 Bad Gateway
+      503 Service Unavailable
+      504 Gateway Timeout
     
   
 ## 第4章 连接管理
