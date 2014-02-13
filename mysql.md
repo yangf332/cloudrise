@@ -199,6 +199,11 @@ mysql
     在mysqld节点下添加：   character-set-server=utf8 ；  collation-server=utf8_general_ci
     保存后重启mysql
 
+## 数据库范式
+    第一范式(1NF)：数据库的每个字段都只能存放单一值，而且每笔记录都要能利用一个惟一的主键来加以识别
+    第二范式(2NF)：数据表里的所有数据都要和该数据表的主键有完全依赖关系；如果有哪些数据只和主键的一部份有关的话，就得把它们独立出来变成另一个数据表。
+    第三范式(3NF)：用来检验是否所有非键属性都只和候选键有相关性，也就是说所有非键属性互相之间应该是无关的。
+
 ## 网上资料
 [InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
 
@@ -207,3 +212,7 @@ mysql
 [画图解释SQL联合语句](http://blog.jobbole.com/40443/ "画图解释SQL联合语句")
 
 [手册](http://dev.mysql.com/doc/refman/5.1/zh/index.html "手册")
+
+[数据库规范化](http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83%E5%8C%96 "数据库规范化")
+
+
