@@ -103,12 +103,20 @@ HTTP报文像河水一样流动。术语流入（inbound）和流出（outbound�
     100～199 信息性状态码
       100 Continue - 用于优化以下情况：客户端要向服务端发送一个实体的主体部分，但希望在发送之前查看下服务器是否接受此实体。
     200～299 成功状态码
+      200 OK
+      201 Created
     300～399 重定向状态码
+      302 Found
       304 Not Modified 重定向为使用本地副本
     400～499 客户端错误状态码
+      400 Bad Request
+      401 Unauthorized
+      403 Forbidden
       404 Not Found 客户端请求资源不存在或错误
+      413 Request Entity Too Large
+      414 Request URI Too Long
     500～599 服务器错误状态码
-
+    
   
 ## 第4章 连接管理
 
