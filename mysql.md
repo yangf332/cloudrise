@@ -31,9 +31,13 @@ mysql
 
 
 ## use
+    select version(), current_date, now(), user();
     select * from tablename;
     select * from tablename where a = 1;
     select * from tablename order by columns desc;
+    select * from tablename where filed1 like 'a%';
+    select * from tablename where filed1 like '___';       ---- 三个长度
+    select * from tablename where filed1 regexp '^.{5}$';  ---- 正则
     update tablename set field1 = 1 where field2 = 2;
     update tablename set field1 = substring(field1, 3);
     update tablename set field1 = concat('pre', field1);
@@ -53,6 +57,7 @@ mysql
     alter table tablename modify a char(20);
     alter table tablename add addfield timestamp;
     alter table tablename drop column b;
+    alter table tablename auto_increment = 100;
 
 ## delete
     -- 可以选择删除；返回删除记录数；
@@ -62,14 +67,20 @@ mysql
 
 ## 时间戳
     select current_timestamp, current_timestamp();
-    
+
+## 用户变量
+    set @a = 1, @b = 2;
+    select @a, @b;    
+
 ## 其它
     select lpad('100015', 8, 0);
     select rpad('100015', 8, 0);
+    select LAST_INSERT_ID(); ---- 查询auto_increment的最新值
 
 ## 导出导入数据库
     mysqldump -uuser -p databasename > /tmp/databasename.sql
     source /tmp/databasename.sql
+    load data local infile '/path/file.txt' into table TABLENAME
     导出excel
     select * into outfile '/path/filename.xls' from TABLENAME
 
