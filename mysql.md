@@ -195,6 +195,13 @@ mysql
     InnoDB 中不保存表的具体行数。执行select count(*) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。
     MyISAM的insert性能高；InnoDB针对索引的update性能高
 
+## 分库分表
+    垂直切分：关系紧密的表放在一个库里
+    水平切分：适合单表数据多的情况。将数据按规则切分到多个server上。
+    混和切分：可无限扩充的server阵列
+    切分策略：先垂直再水平
+
+
 ## 报错问题
     1.  The used SELECT statements have a different number of columns
     在使用union查询时，多个查询语句的查询字段不一致
@@ -226,4 +233,4 @@ mysql
 
 [数据库规范化](http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83%E5%8C%96 "数据库规范化")
 
-
+[数据库分库分表(sharding)系列](http://blog.csdn.net/column/details/sharding.html "数据库分库分表(sharding)系列")
