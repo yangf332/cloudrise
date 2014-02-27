@@ -98,6 +98,24 @@
 ## 十八、性能监控
 
 
+## 书外内容
+
+### 互联网系统架构的演进
+    1. 网站开发初期：短平快
+        开发语言：PHP、Java为主力
+        辅助框架：PHP的Yii，Python的Django等
+        数据：    安全和备份
+    2. 解决可用性问题：不能有单点失效
+        前端采用LVS、HAProxy、Nginx等负载均衡/反向代理设备
+        DB：DRDB+Heartbeat技术组合
+        程序节点：
+    3. 解决性能问题：水平扩展
+        数据存储：硬盘读写、内存读写
+        存储模型：结构化存储（传统DB）和NoSQL存储(HBase、Memcached、Redis)
+        定制文件系统：GFS、TFS
+        分库分表：水平切分、垂直切分
+        缓存：本地缓存、分布式缓存
+        
 
 ## 网上资料
 [linux strace](http://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html "linux strace")
@@ -105,4 +123,6 @@
 [linux](http://www.linux.org/ "linux")
 
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
+
+[互联网系统架构的演进](http://blog.csdn.net/heiyeshuwu/article/details/11862979 "互联网系统架构的演进")
 
