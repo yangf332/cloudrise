@@ -75,7 +75,15 @@ CentOS 和 Ubuntu学习
 ## 安装rzsz
     yum install lrzsz
 
-
+## 安装cacti
+    rpm -ivh http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
+    yum install rrdtool -y
+    yum install net-snmp net-snmp-libs net-snmp-utils
+    service snmpd start
+    下载安装cacti: http://www.cacti.net/downloads/
+    添加自动任务
+    echo "*/5 * * * * cactiuser php /var/www/html/cacti/poller.php > /dev/null 2>&1">>/etc/crontab
+    
 
 ## [U]ubuntu安装apache, php
     apt-get update
@@ -170,5 +178,7 @@ CentOS 和 Ubuntu学习
 [《Ubuntu Server最佳方案》]
 
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
+
+[cacti install](http://baike.baidu.com/link?url=CtWOY3jK8-GvY3tKG5gjJ7CAo8cM-YT0BwCUkB3q5TzLGa1sRS29H-Uji_9M-6bvnx2JeSQbvGCCAaksmmdBha "cacti install")
 
 
