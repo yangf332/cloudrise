@@ -189,8 +189,26 @@ mysql
     [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
 
 ## InnoDB和MyISAM
-    MyISAM 是MySQL中默认的存储引擎
-    InnoDB 具有提交，回滚和崩溃恢复的能力。处理大数据量性能好。
+    MyISAM优点:
+        是MySQL中默认的存储引擎
+        设计的目的是使用唯一的键在读取操作中快速检查。适合95%的操作为读操作
+        支持全文索引
+        磁盘空间占用较少
+    MyISAM缺点:
+        表级别锁定，如果写操作超过5%，速度变慢
+        不支持事务，没有回滚能力
+        持久性有问题，崩溃恢复操作慢
+    InnoDB优点：
+        支持事务，回滚。崩溃不会导致数据损坏
+        行级锁定，并发写入同一表的不同行不会被序列化
+        支持全部ACID功能的版本控制
+        支持多种联机备份策略
+        提高了并发能力
+        具有提交，回滚和崩溃恢复的能力。处理大数据量性能好。
+    InnoDB缺点：
+        没有全文索引
+        占用更多磁盘空间
+        简单查询速度低于MyISAM
     MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率对应提高了不少。而Innodb是索引和数据是紧密捆绑的，没有使用压缩从而会造成Innodb比MyISAM体积庞大不小。
     InnoDB 中不保存表的具体行数。执行select count(*) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。
     MyISAM的insert性能高；InnoDB针对索引的update性能高
