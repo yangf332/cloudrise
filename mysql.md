@@ -90,6 +90,7 @@ mysql
 ## show
     show variables;      -- 查看配置信息
     show global status;  -- 查看MySQL服务器运行的各种状态值
+    show engines;        -- 查看引擎信息，从ver5.5开始，默认为InnoDB
     show variables like 'max_connections';  
     show global status like 'max_used_connections';  
     show variables like 'key_buffer_size';  
@@ -190,7 +191,7 @@ mysql
 
 ## InnoDB和MyISAM
     MyISAM优点:
-        是MySQL中默认的存储引擎
+        是MySQL中默认的存储引擎，ver5.5之前
         设计的目的是使用唯一的键在读取操作中快速检查。适合95%的操作为读操作
         支持全文索引
         磁盘空间占用较少
@@ -240,6 +241,26 @@ mysql
     第二范式(2NF)：数据表里的所有数据都要和该数据表的主键有完全依赖关系；如果有哪些数据只和主键的一部份有关的话，就得把它们独立出来变成另一个数据表。
     第三范式(3NF)：用来检验是否所有非键属性都只和候选键有相关性，也就是说所有非键属性互相之间应该是无关的。
 
+### 安装完MySQL后必须调整的10项配置
+    * 一次只改变一个设置！这是测试改变是否有效的唯一方法。
+    * 运行时可使用set global。需要永久生效，在配置文件里改动。
+    * 改动配置后无法重启？确认使用了正确的单位。
+    基本配置
+    1. innodb_buffer_pool_size: 缓冲池是数据和索引缓存的地方：这个值越大越好，这能保证你在大多数的读取操作时使用的是内存而不是硬盘。
+    2. innodb_log_file_size: 
+    3. max_connections: 解决“Too many connections”错误
+    InnoDB配置
+    4. innodb_file_per_table: 
+    5. innodb_flush_log_at_trx_commit: 
+    6. innodb_flush_method:
+    7. innodb_log_buffer_size:
+    其它设置
+    query_cache_size:
+    log_bin:
+    expire_logs_days:
+    skip_name_resolve: 跳过DNS查找
+
+
 ## 网上资料
 [InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
 
@@ -252,3 +273,6 @@ mysql
 [数据库规范化](http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%84%E8%8C%83%E5%8C%96 "数据库规范化")
 
 [数据库分库分表(sharding)系列](http://blog.csdn.net/column/details/sharding.html "数据库分库分表(sharding)系列")
+
+[安装完 MySQL 后必须调整的 10 项配置](http://www.oschina.net/translate/10-mysql-settings-to-tune-after-installation "安装完 MySQL 后必须调整的 10 项配置")
+
