@@ -260,6 +260,19 @@ mysql
     expire_logs_days:
     skip_name_resolve: 跳过DNS查找
 
+### Query Cache
+    缓存客户端提交给MySQL的select(仅此类型)语句及结果集。
+    注意：此缓存是mysql的缓存，在存储引擎之上。引擎、表、日志等都有各自的缓存。
+    缓存原理：
+        select语句通过一定的hash计算，存放在hash表里。结果集存放在内存中。
+    失效机制：
+        任何一个表或者数据、索引结构发生变化时，与此表关联的cache失效，并释放内存。
+        所以数据变化频繁的sql就不要cache了。
+    相关参数：
+        SHOW VARIABLES LIKE '%query_cache%';
+    确认query cache使用情况，命中率：
+        show status like 'Qcache%';
+        
 
 ## 网上资料
 [InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
@@ -276,3 +289,4 @@ mysql
 
 [安装完 MySQL 后必须调整的 10 项配置](http://www.oschina.net/translate/10-mysql-settings-to-tune-after-installation "安装完 MySQL 后必须调整的 10 项配置")
 
+[query cache](http://blog.csdn.net/qiuyepiaoling/article/details/6004611 "query cache")
