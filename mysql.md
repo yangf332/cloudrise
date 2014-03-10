@@ -28,7 +28,7 @@ mysql
         time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPATE CURRENT_TIMESTAMP,
         PRIMARY KEY (id),
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8
-
+    * 注意int(11),在int类型中参数11为最大显示宽度，不影响取值范围
 
 ## use
     select version(), current_date, now(), user();
