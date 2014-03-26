@@ -67,6 +67,10 @@ Vim 常用操作
     :vsp [filename] //
     行首加入内容  :%s/^/addtext
     行尾加入内容  :%s/$/addtext
+    :E              // 浏览目录
+    :mksession ~/.mysession.vim    // 保存session，下次直接打开即可
+    [Ctrl + P]                     // 自动补全
+    guu / gUU                      // 把一行变成小/大写
 
 ## .vimrc
     cd ~
