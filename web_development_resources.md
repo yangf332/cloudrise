@@ -40,6 +40,8 @@ Web开发资源
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 [hover](http://ianlunn.github.io/Hover/)
 
+[icon](http://www.iconfont.cn/)
+
 
 ## git
 [github](http://github.com/)
