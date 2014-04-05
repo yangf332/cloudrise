@@ -63,7 +63,7 @@ HTTP报文像河水一样流动。术语流入（inbound）和流出（outbound�
 
     1. start line : HTTP/1.0 200 ok
     2. header     : Content-type:text/plain Content-length:19   
-    3. body       : Hi! I'm a message!
+    3. body       : Hi! I am a message!
 
 每个部分间用一个回车符（ASCII 13）和一个换行符（ASCII 10）结束。但要注意老的HTTP应用可能并不发送结束符。
 
