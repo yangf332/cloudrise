@@ -124,6 +124,14 @@ Ubuntu
     w
     top
 
+## 工具
+    iftop - 网络流量监控工具 
+        sudo apt-get install iftop
+        sudo iftop
+    nethogs - 网络流量监控工具
+        sudo apt-get install nethogs
+        sudo nethogs
+
 
 
 
@@ -143,6 +151,7 @@ Ubuntu
         1. find . -inum INODE_NUM -delete   // 通过inode号删除文件
         2. 移动或重命名文件，只改变文件名，不影响inode号
         3. 通过inode识别文件，实现运行中更新
+
 
 ## 错误解决
     1. apache2: Could not reliably determine the server 's fully qualified domain name, using 127.0.1.1 for ServerName
