@@ -31,18 +31,26 @@ Ubuntu
     grep sshd /var/log/auth.log.0
 
 ## 帐号管理
-    useradd -m -s /bin/bash newuser
-    passwd newuser
+    useradd -d /home/[newuser] -s /bin/bash -m [newuser] // m表示如果目录不存在则创建
+    passwd [newuser]
     groupadd ftp                          // 添加组
     usermod -g www newuser                // 添加帐号到组
     usermod -G www,ftp,backup newuser     // 添加帐号到多个组
     id newuser && groups newuser          // 验证
     // sudoer和权限
-    vim /etc/sudoers
-    newuser ALL=(ALL:root) /usr/bin/find, /bin/rm
+    vim /etc/sudoers                      // or `visudo`
+    [newuser] ALL=(ALL:root) /usr/bin/find, /bin/rm
+    [newuser] ALL=(ALL) NOPASSWD: ALL     // sudo时不需要密码
     // TODO 别名设置
     // 删除
-    userdel newuser
+    userdel -r [newuser]
+
+## 运行环境配置
+    locale
+    sudo locale-gen en_US en_US.UTF-8 en_CA.UTF-8
+    sudo dpkg-reconfigure lcales
+    sudo apt-get update
+    sudo apt-get upgrade
 
 ## 安装LAMP
     apt-get install apache2
