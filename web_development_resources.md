@@ -10,6 +10,8 @@ Web开发资源
 
 <img src="http://image.beekka.com/blog/201105/free_software_licenses.png" alt="如何选择开源许可证?" title="如何选择开源许可证?" width="750" />
 
+[前端网址导航](http://www.daqianduan.com/nav/)
+
 ## CDN
 [七牛静态文件CDN](http://www.staticfile.org/)
     
@@ -51,6 +53,10 @@ Web开发资源
 [github](http://github.com/)
 
 [git.oschina.net](https://git.oschina.net/)
+
+## mobile
+[mobile emulator](http://emulator.mobilewebsitesubmit.com/)
+
 
 ## 标准
 [各类标准的链接集合](https://gist.github.com/wintercn/5925837)
