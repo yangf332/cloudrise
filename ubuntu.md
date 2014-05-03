@@ -94,6 +94,16 @@ Ubuntu
     RewriteEngine on
     RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
     RewriteRule ^(.*)$ /index.php$1 [L]
+    AND
+    <Directory />
+    Options -Indexes FollowSymLinks #-Indexes表示不允许目录浏览
+    AllowOverride None | All | AuthConfig | FileInfo | Indexes | Limit | Options
+    </Directory>
+    设置为None时完全忽略.htaccess文件
+    禁止目录浏览，还可以在.htaccess文件中输入
+    <Files *>
+    Options -Indexes
+    </Files>
 
 ## 查看系统信息
     // lsb是Linux Standard Base的缩写，lsb_release命令用来显示LSB和特定版本的相关信息
@@ -177,5 +187,6 @@ Ubuntu
 
 [Linux命令----分析CPU的瓶颈](http://space.itpub.net/8554499/viewspace-580300 "http://space.itpub.net/8554499/viewspace-580300")
 
-
 [inode](http://www.ruanyifeng.com/blog/2011/12/inode.html "inode")
+
+[Apache - AllowOverride](http://www.chinaz.com/server/2010/0129/105397.shtml "Apache - AllowOverride")
