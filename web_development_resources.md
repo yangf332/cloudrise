@@ -42,6 +42,8 @@ Web开发资源
 
 [good-looking charts](http://www.oesmith.co.uk/morris.js/)
 
+[Qunee](http://qunee.com/)
+
 ## CSS
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 
