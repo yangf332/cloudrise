@@ -155,6 +155,13 @@ Ubuntu
 
 ## 其它
 
+#### 其它命令
+    lscpu  # 查询cpu信息
+    lshw   # 查询硬件信息
+    lspci  # 查询pci总线相关信息
+    lsusb  # 查询usb信息
+    lsblk  # 查询块设备信息，包括硬盘分区
+
 #### 理解inode
     inode是Unix/Linux文件系统和硬盘存储的基础
     inode包含信息：文件的字节数、UID、GID、权限、三个时间戳、链接数、block位置
