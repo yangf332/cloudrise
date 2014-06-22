@@ -67,13 +67,18 @@ Git Community Book中文版
 ##分支与合并基础
 
     git branch
+    git branch -r // 查看远程分支
+    git branch -a // 查看所有分支
     git branch branch_name
+    git checkout -b newBranch //创建新分支
     git checkout branch_name | git checkout master
-    git push origin new_branch_name
+    git push origin newBranch
+    git push origin --delete master  //删除远程分支
+    git branch -d local | git branch -D local //删除本地分支
     git merge branch_name
     git diff //查看冲突
     gitk //图形显示项目历史
-    git branch -d local | git branch -D local //delete
+    
     # 迁出某个commit 
     git log
     git checkout commit_sha1 
@@ -103,8 +108,6 @@ Git Community Book中文版
 
     git tag tag-name commit_shavalue //轻量级，分支不移动
     git tag -a tag-name commit_shavalue //创建标签对象
-
-
 
 
 //以下内容来自网络其它地方
