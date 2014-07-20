@@ -272,7 +272,37 @@ mysql
         SHOW VARIABLES LIKE '%query_cache%';
     确认query cache使用情况，命中率：
         show status like 'Qcache%';
-        
+
+
+### 数据库设计学习笔记 (http://www.imooc.com/view/117)
+    根据业务需要，结合DBMS，构造数据存储模型。实现有效的存储及高效地访问。
+    设计步骤：
+        需求分析： 
+            数据是什么？
+            数据属性？ 时效性？过期清理或归档：永久保存；数据过大？分库分表：单库单表
+            存储特点？ 永久存储|过期清理
+        逻辑设计： ER图逻辑建模
+            设计范式
+        物理设计： DBMS
+            选择合适的数据库
+            建库建表及命名规范
+            字段类型： 优先考虑数字类型；其次是日期和二进制；最后是字符类型；相同级别选择占用空间小的
+                字符串处理比数字慢
+            反范式化设计： 为了性能和读取效率违反范式
+            避免使用外键约束： 降低效率、高并发变慢
+            避免使用触发器：  降低效率、可能出现异常、业务逻辑复杂
+            严禁使用预留字段： 
+        维护优化：
+            维护数据字典
+                select a.table_name, b.TABLE_COMMENT, a.COLUMN_NAME, a.COLUMN_TYPE, a.COLUMN_COMMENT
+                FROM information_schema.COLUMNS a 
+                JOIN information_schema.TABLES b
+                ON a.table_schema = b.table_schema 
+                AND a.table_name = b.table_name
+                WHERE a.table_name = '[tablename]';
+            维护索引
+            维护表结构
+            表拆分
 
 ## 网上资料
 [InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
