@@ -84,92 +84,38 @@ CentOS 和 Ubuntu学习
     添加自动任务
     echo "*/5 * * * * cactiuser php /var/www/html/cacti/poller.php > /dev/null 2>&1">>/etc/crontab
     
-
-## [U]ubuntu安装apache, php
-    apt-get update
-    apt-get install apache2
-    apt-get install mysql-server
-    apt-get install php5, php5-mysql, php5-gd
-
-## [U]ubuntu启动apache
-    sudo /etc/init.d/apache2 start
-
-## [U]Apache创建一个新的虚拟主机(复制default并启用)
-    cd /etc/apache2/sites-available/
-    sudo cp default www.test.com
-    vim www.test.com
-    sudo a2dissite default && sudo a2ensite www.test.com
-    sudo /etc/init.d/apache2 restart
-
-## [U]ubuntu安装curl
-    sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
-    *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
-    Installing new version of config file /etc/php5/conf.d/curl.ini ...
-    重启apache
-
-## [U]ubuntu安装ssg
-    sudo apt-get install openssh-server
-    /etc/init.d/ssh start
-    ssh localhost
-
-## [U]HTTPS的实现
-
-## [U]启用压缩
-
-## [U]使用缓存（mod_cache）
-
-## [U]不要以root身份运行Apache
-
-## [U]ubuntu启用rewrite
-    sudo a2enmod rewrite
-	vim /etc/apache2/sites-available/default
-	RewriteEngine on
-    RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
-    RewriteRule ^(.*)$ /index.php$1 [L]
-
-## [U]ubuntu开启默认关闭的80端口
-    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-
-## [U]ufw防火墙
-    apt-get install ufw
-    ufw enable
-    ufw default deny
-    ufw allow 22/tcp
-    ufw allow from 10.0.0.1
-    ufw deny 80
-    ufw delete deny 80/tcp
-    ufw status
-
-## [U]用Apache支持Python
-    sudo apt-get intall libapache2-mod-python
-    支持Python有两种方式：后者支持html中嵌入py代码
-        Publisher Handler:
-            <Directory /var/www/>
-                AddHandler mod python .py
-                PythonHandler mod_python.publisher
-                PythonDebug On
-            </Directory>
-        PSP Handler:
-            <Directory /var/www/>
-                AddHandler mod python .psp
-                PythonHandler mod_python.psp
-                PythonDebug On
-            </Directory>
-    sudo /etc/init.d/apache2 restart
-
-## [U]用Django开发Web应用
-    sudo apt-get install python-django
-    django-admin startproject mysite
+## 安装git服务器
+    sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+    cd /usr/local/src
+    wget http://code.google.com/p/git-core/git-1.9.0.tar.gz
+    sudo tar -zxvf git-1.9.0.tar.gz
+    cd git-1.9.0
+    sudo make prefix=/usr/local/git all
+    sudo make prefix=/usr/local/git install
+    sudo ln -s /usr/local/git/bin/* /usr/bin/
+    git --version  #显示版本号，表示成功
+    sudo yum install python python-setuptools
+    cd /usr/local/src
+    git clone git://github.com/res0nat0r/gitosis.git
+    cd gitosis
+    python setup.py install  #显示Finished processing dependencies for gitosis==0.2即表示成功
+    # 开发机上
+    scp id_rsa.pub username@ip:/tmp
+    # server
+    su - username
+    gitosis-init < /tmp/id_rsa.pub
+    # 开发机
+    git clone username@ip/gitosis-admin.git
+    vim gitosis.conf
+    mkdir test-git
+    cd test-git
+    git init
+    git add .
+    git commit -m 'init'
+    git remote add origin username@ip:test-git.git
+    git push origin master
     
-## [U]locale-gen
-    locale-gen zh_CN.UTF-8  // 编译本地定义文件的一个列表
-    环境变量：
-    LC_CTYPE     - Character classification and case conversion.
-    LC_COLLATE   - Collation order.
-    LC_TIME      - Date and time formats.
-    LC_NUMERIC   - Non-monetary numeric formats.
-    LC_MONETARY  - Monetary formats.
-    LC_MESSAGES  - Formats of informative and diagnostic messages and interactive responses.
+
 
 
 ## 网上资料
@@ -180,5 +126,7 @@ CentOS 和 Ubuntu学习
 [linux command](http://linux.chinaitlab.com/special/linuxcom/ "linux command")
 
 [cacti install](http://baike.baidu.com/link?url=CtWOY3jK8-GvY3tKG5gjJ7CAo8cM-YT0BwCUkB3q5TzLGa1sRS29H-Uji_9M-6bvnx2JeSQbvGCCAaksmmdBha "cacti install")
+
+[git server](https://github.com/jackliu2013/recipes/blob/master/doc/linux/CentOS_6.4_git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA.md)
 
 

@@ -122,6 +122,94 @@ Ubuntu
     locale
     cat /etc/default/locale
 
+
+## [U]ubuntu安装apache, php
+    apt-get update
+    apt-get install apache2
+    apt-get install mysql-server
+    apt-get install php5, php5-mysql, php5-gd
+
+## [U]ubuntu启动apache
+    sudo /etc/init.d/apache2 start
+
+## [U]Apache创建一个新的虚拟主机(复制default并启用)
+    cd /etc/apache2/sites-available/
+    sudo cp default www.test.com
+    vim www.test.com
+    sudo a2dissite default && sudo a2ensite www.test.com
+    sudo /etc/init.d/apache2 restart
+
+## [U]ubuntu安装curl
+    sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
+    *** curl.ini (Y/I/N/O/D/Z) [default=N] ? Y
+    Installing new version of config file /etc/php5/conf.d/curl.ini ...
+    重启apache
+
+## [U]ubuntu安装ssg
+    sudo apt-get install openssh-server
+    /etc/init.d/ssh start
+    ssh localhost
+
+## [U]HTTPS的实现
+
+## [U]启用压缩
+
+## [U]使用缓存（mod_cache）
+
+## [U]不要以root身份运行Apache
+
+## [U]ubuntu启用rewrite
+    sudo a2enmod rewrite
+    vim /etc/apache2/sites-available/default
+    RewriteEngine on
+    RewriteCond $1 !^(\/index\.php|\/img|\/assets|\/js|\/css|\/robots\.txt|\/favicon\.ico|\/crossdomain\.xml)
+    RewriteRule ^(.*)$ /index.php$1 [L]
+
+## [U]ubuntu开启默认关闭的80端口
+    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+## [U]ufw防火墙
+    apt-get install ufw
+    ufw enable
+    ufw default deny
+    ufw allow 22/tcp
+    ufw allow from 10.0.0.1
+    ufw deny 80
+    ufw delete deny 80/tcp
+    ufw status
+
+## [U]用Apache支持Python
+    sudo apt-get intall libapache2-mod-python
+    支持Python有两种方式：后者支持html中嵌入py代码
+        Publisher Handler:
+            <Directory /var/www/>
+                AddHandler mod python .py
+                PythonHandler mod_python.publisher
+                PythonDebug On
+            </Directory>
+        PSP Handler:
+            <Directory /var/www/>
+                AddHandler mod python .psp
+                PythonHandler mod_python.psp
+                PythonDebug On
+            </Directory>
+    sudo /etc/init.d/apache2 restart
+
+## [U]用Django开发Web应用
+    sudo apt-get install python-django
+    django-admin startproject mysite
+    
+## [U]locale-gen
+    locale-gen zh_CN.UTF-8  // 编译本地定义文件的一个列表
+    环境变量：
+    LC_CTYPE     - Character classification and case conversion.
+    LC_COLLATE   - Collation order.
+    LC_TIME      - Date and time formats.
+    LC_NUMERIC   - Non-monetary numeric formats.
+    LC_MONETARY  - Monetary formats.
+    LC_MESSAGES  - Formats of informative and diagnostic messages and interactive responses.
+
+
 ## locale-gen
     locale-gen zh_CN.UTF-8  // 编译本地定义文件的一个列表
     环境变量：
