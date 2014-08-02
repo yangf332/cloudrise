@@ -44,6 +44,8 @@ Web开发资源
 
 [Qunee](http://qunee.com/)
 
+[mockjs 款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试](http://mockjs.com/ 'Mock.js是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试')
+
 ## CSS
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 
