@@ -46,6 +46,8 @@ Web开发资源
 
 [mockjs 款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试](http://mockjs.com/ 'Mock.js是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试')
 
+[百度UEditor富文本编辑器](https://github.com/fex-team/ueditor '富文本编辑器')
+
 ## CSS
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 

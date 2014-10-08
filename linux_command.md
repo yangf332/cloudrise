@@ -68,6 +68,10 @@ Linux Command
     sudo make install              // 将编译完成的程序安装到系统中。通常需要 root权限
     make clean                     // 清除源代码目录中的编译结果
 
+## 统计代码行数
+    ls * | xargs wc -l
+    find . -name '*.php' | xargs wc -l
+
 ## 其它
     cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30 看看你最常用的命令是什么
     回到刚才的目录
