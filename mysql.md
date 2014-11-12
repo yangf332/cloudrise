@@ -65,6 +65,26 @@ mysql
     -- 只能全部删除；返回0；自增字段恢复成初始值；快；
     truncate tablename;
 
+## 权限相关
+    use mysql;
+    SELECT User, Password, Host from user;
+    GRANT ALL ON database.* TO 'username'@'host' IDENTIFIED BY 'password';
+    SHOW GRANTS;
+    SHOW GRANTS FOR 'username'@'host';
+    REVOKE ALL ON database.* FROM 'username'@'host';
+    RENAME USER 'username'@'host' TO 'newusername'@'host';
+    SET PASSWORD FOR 'username'@'host' = PASSWORD('XX');
+    DROP USER 'username'@'host';
+    FLUSH PRIVILEGES;
+    =====
+    HOST值的意义：
+    % 匹配所有的主机
+    localhost 不会被解析成IP地址，直接通过UNIX Socket连接
+    127.0.0.1 通过TCP/IP访问，并且只能在本地访问
+    ::1 兼容支持ipv6，表示同ipv4的127.0.0.1
+    =====
+    权限分配相关表：user=>db=>tables_priv=>columns_priv
+
 ## 时间戳
     select current_timestamp, current_timestamp();
 
@@ -320,3 +340,5 @@ mysql
 [安装完 MySQL 后必须调整的 10 项配置](http://www.oschina.net/translate/10-mysql-settings-to-tune-after-installation "安装完 MySQL 后必须调整的 10 项配置")
 
 [query cache](http://blog.csdn.net/qiuyepiaoling/article/details/6004611 "query cache")
+
+[mysql用户管理和权限设置](http://www.cnblogs.com/fslnet/p/3143344.html "mysql用户管理和权限设置")
