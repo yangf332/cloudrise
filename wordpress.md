@@ -67,8 +67,15 @@ wordpress学习
         
     ?>
 
+#### esc_attr()
+    依照WordPress 编程规范，属性中出现的文本需要经过esc_attr处理，这样单引号和双引号才不会影响属性值结束，
+    否则会导致无效代码和安全问题。一般要检查的地方有 title， alt， 和 value 属性.
+
 #### 分类链接
     wp_list_cats();
+
+#### 读取分类
+    get_the_category($post->ID);
 
 #### 归档链接
     wp_get_archives('type=monthly');
@@ -96,6 +103,9 @@ wordpress学习
     theme_url() 主题目录URL http://www.example.com/wp-content/themes
     wp_upload_dir() 上传目录URL (返回一个数组) http://www.example.com/wp-content/uploads
 
+
 ## 网上资料
 
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
+
+[WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
