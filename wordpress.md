@@ -98,8 +98,24 @@ wordpress学习
 #### 分类链接
     wp_list_cats();
 
-#### 检查博客是否有固定链接结构
+#### 检查博客是否有固定链接结构、添加URL后缀斜线
     if ( get_option('permalink_structure') != '' ) { echo 'permalinks enabled' }
+
+    if (!is_admin())  {
+        function ppm_fixe_trailingslash($url, $type)
+        {
+            $permalink_structure = get_option('permalink_structure');
+            if (!$permalink_structure || '/' === substr($permalink_structure, -1))
+                return;
+
+            if ('single' === $type || 'page' === $type)
+                return $url;
+
+            return trailingslashit($url);
+        }
+        add_filter('user_trailingslashit', 'ppm_fixe_trailingslash', 10, 2);
+    }
+    
 
 #### 读取分类
     get_the_category($post->ID);
