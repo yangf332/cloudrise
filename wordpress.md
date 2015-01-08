@@ -67,12 +67,39 @@ wordpress学习
         
     ?>
 
+#### 根据post_id获取特色图片url
+    /**
+    * 根据post_id获取特色图片url
+    * @param  [type] $post_id [description]
+    * @param  string $size    thumbnail:缩略图 medium：中图 large：大图 full：原图
+    * @return [type]          [description]
+    */
+    function get_attachment_image($post_id, $size = 'thumbnail') {
+        $default_image = '';
+
+        $attachment_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size );
+        $url = ( isset($attachment_image) && !empty($attachment_image) ) ? $attachment_image[0] :  $default_image;
+
+        return $url;
+    }
+
+
+#### 获取参数
+    get_query_var()
+
 #### esc_attr()
     依照WordPress 编程规范，属性中出现的文本需要经过esc_attr处理，这样单引号和双引号才不会影响属性值结束，
     否则会导致无效代码和安全问题。一般要检查的地方有 title， alt， 和 value 属性.
 
+#### 分类
+    $cate = get_the_category($val['ID']);
+    $cate = $cate[0];
+
 #### 分类链接
     wp_list_cats();
+
+#### 检查博客是否有固定链接结构
+    if ( get_option('permalink_structure') != '' ) { echo 'permalinks enabled' }
 
 #### 读取分类
     get_the_category($post->ID);
@@ -88,6 +115,22 @@ wordpress学习
     wp_loginout();
     wp_meta();
     
+#### 判断函数
+    is_trackback()
+    is_search()
+    is_comments_popup()
+    is_admin()
+    !empty($_POST)
+    is_preview()
+    is_robots()
+    $is_IIS && !iis7_supports_permalinks()
+    is_ssl()
+    is_404()
+    is_singular
+    is_multisite
+    is_front_page
+    is_attachment
+
 ## 文件拆分
     header.php, sidebar.php, footer.php
     get_header(), get_sidebar(), get_footer();
@@ -109,3 +152,5 @@ wordpress学习
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
 
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
+
+[hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
