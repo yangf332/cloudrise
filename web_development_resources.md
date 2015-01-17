@@ -55,7 +55,6 @@ Web开发资源
 
 [icon](http://www.iconfont.cn/)
 
-
 ## git
 [github](http://github.com/)
 
@@ -80,7 +79,6 @@ Web开发资源
 ## others
 [各类API](http://devdocs.io/)
 
-
 [unicode查询表](http://unicode-table.com/en/)
 
 [阿里测：网站及服务器性能分析](http://www.alibench.com)
@@ -92,8 +90,3 @@ Web开发资源
 [api设计工具](https://app.apiary.io)
 
 [Valgrind用于内存调试、内存泄漏检测以及性能分析的工具](http://zh.wikipedia.org/wiki/Valgrind)
-
-## ruby on rails
-http://guides.rubyonrails.org/
-
-
