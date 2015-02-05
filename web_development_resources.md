@@ -79,6 +79,10 @@ Web开发资源
 ## markdown
 [Mou](http://25.io/mou/)
 
+## 在线IDE
+[jsfiddle](http://jsfiddle.net/)
+[codepen](http://codepen.io/pen/)
+
 ## others
 [各类API](http://devdocs.io/)
 
