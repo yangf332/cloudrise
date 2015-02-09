@@ -86,6 +86,8 @@ Web开发资源
 ## others
 [各类API](http://devdocs.io/)
 
+[百度API Store](http://apistore.baidu.com/)
+
 [unicode查询表](http://unicode-table.com/en/)
 
 [阿里测：网站及服务器性能分析](http://www.alibench.com)
