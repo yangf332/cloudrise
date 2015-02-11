@@ -87,6 +87,7 @@ Git Community Book中文版
     git log
     git log -p //显示patchs
     git log --stat //显示修改文件及添加删除了多少行
+    git log --graph --oneline
     git log --pretty=[raw|short|format] //格式化日志
     git log --pretty=format:'%h : %s' --graph
 
