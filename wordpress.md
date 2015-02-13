@@ -73,8 +73,7 @@ wordpress学习
     if ( have_posts() ) : while (have_posts() ) : the_post();
             the_title(); the_author();the_category(', ');
             the_permalink(); the_ID();
-            the_content();
-            the_post();
+               the_content();
             posts_nav_link('in between','before','after');
             comments_popup_link('No Comments »', '1 Comment »', '% Comments »');
             edit_post_link('Edit', ' | ', '');
@@ -84,6 +83,14 @@ wordpress学习
     endif;
     wp_reset_query();
     ?>
+
+#### 上一篇|下一篇 文章链接
+    <?php if (get_previous_post(true) || get_next_post(true)) : ?>
+    <div class="conten-col-02">
+        <?php if (get_previous_post()) {previous_post_link(' %link ', '%title', true) ; }?>
+        <?php if (get_next_post()) {next_post_link(' %link ', '%title', true) ; }?>
+    </div>
+    <?php endif; ?>
 
 #### 根据post_id获取特色图片url
     /**
@@ -134,6 +141,9 @@ wordpress学习
 #### 归档链接
     wp_get_archives('type=monthly');
 
+#### 当前分类
+    $thisCat = get_category(get_query_var('cat'), false);
+
 #### 评论内容
     if ( comments_open() || get_comments_number() ) {
         comments_template();
@@ -150,6 +160,7 @@ wordpress学习
     wp_meta();
 
 #### 判断函数
+    is_home()
     is_trackback()
     is_search()
     is_comments_popup()
@@ -175,8 +186,14 @@ wordpress学习
         return $buttons;
     }
     add_filter('mce_buttons_3', 'enable_more_buttons'); // 里面的数字是按钮行数
-    // bold ,italic ,underline ,strikethrough ,justifyleft ,justifycenter ,justifyright ,justifyfull ,bullist ,numlist ,outdent ,indent ,cut ,copy,paste ,undo ,redo ,link ,unlink ,image ,cleanup ,help ,code ,hr ,removeformat ,formatselect ,fontselect ,fontsizeselect ,styleselect ,sub ,sup ,forecolor ,backcolor ,forecolorpicker ,backcolorpicker ,charmap ,visualaid ,anchor ,newdocument ,blockquote
+    // bold ,italic ,underline ,strikethrough ,justifyleft ,justifycenter ,justifyright ,justifyfull ,bullist ,numlist ,outdent ,indent ,cut ,copy,paste ,undo ,redo ,link ,unlink ,image ,cleanup ,help ,code ,hr ,removeformat ,formatselect ,fontselect ,fontsizeselect ,styleselect ,sub ,sup ,forecolor ,backcolor ,forecolorpicker ,backcolorpicker ,charmap ,visualaid ,anchor ,newdocument ,block quote
 
+#### 启用特色图片及设置缩略图
+    add_theme_support( 'post-thumbnails' );
+    add_image_size( 'zero', 70, 70, true );
+    add_image_size( 'one', 125, 75, true );
+    add_image_size( 'two', 250, 145, true );
+    add_image_size( 'three', 500, 290, true );
 
 ## 文件拆分
     header.php, sidebar.php, footer.php
@@ -192,6 +209,7 @@ wordpress学习
     plugins_url() 插件目录URL http://www.example.com/wp-content/plugins
     theme_url() 主题目录URL http://www.example.com/wp-content/themes
     wp_upload_dir() 上传目录URL (返回一个数组) http://www.example.com/wp-content/uploads
+    get_template_directory_uri() 
 
 ## Plugin
 * Acurax Social Icons Options 设置各社交网络链接
@@ -250,6 +268,3 @@ wordpress学习
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
 
-
-
- 
