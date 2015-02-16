@@ -141,9 +141,6 @@ wordpress学习
 #### 归档链接
     wp_get_archives('type=monthly');
 
-#### 当前分类
-    $thisCat = get_category(get_query_var('cat'), false);
-
 #### 评论内容
     if ( comments_open() || get_comments_number() ) {
         comments_template();
@@ -160,7 +157,6 @@ wordpress学习
     wp_meta();
 
 #### 判断函数
-    is_home()
     is_trackback()
     is_search()
     is_comments_popup()
@@ -194,6 +190,25 @@ wordpress学习
     add_image_size( 'one', 125, 75, true );
     add_image_size( 'two', 250, 145, true );
     add_image_size( 'three', 500, 290, true );
+
+#### 注册管理后台（外观-》小工具+菜单）
+    /**
+     * Register two widget areas.
+     *
+     */
+    function xxx_widgets_init() {
+        register_sidebar( array(
+            'name'          => __( 'Main Widget Area', 'xxx' ),
+            'id'            => 'sidebar-1',
+            'description'   => __( 'Appears in the footer section of the site.', 'xxx' ),
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ) );
+
+    }
+    add_action( 'widgets_init', 'xxx_widgets_init' );
 
 ## 文件拆分
     header.php, sidebar.php, footer.php
