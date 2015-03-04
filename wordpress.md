@@ -38,6 +38,35 @@ wordpress学习
 
     $field : user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_status, display_name, nickname, first_name, last_name, description, user_level, user_firstname, user_lastname, user_description, ID
 
+#### query_posts
+    query_posts('cat=4');
+    query_posts('category_name=Codex');
+    query_posts('cat=2,6,17');
+    query_posts('cat=-3');  // 排除
+    query_posts(array('category_and' => array(2, 6));
+    query_posts(array('category_in' => array(6)));
+    query_posts(array('category_not_in' => array(2, 6));
+    query_posts('tag=cooking');
+    query_posts('author=3');
+    query_posts('author=-3');
+    query_posts('author_name=bob');
+    query_posts(array('post_in' => get_option('sticky_posts'));
+    query_posts(array('post_not_in' => get_option('sticky_posts'));
+    query_posts('cat=6&posts_per_page=3&caller_get_posts=1');
+    query_posts('year=2015&monthnum=12&day=20');
+    query_posts(array(
+        'p' => 20, // 文章编号
+        'name' => 'about',
+        'page_id' => 7, // 分页编号
+        'pagename' => 'about', //
+        'showposts' => 6,
+        ...
+    ));
+    !!注意
+    结束后使用wp_reset_query()
+   
+      
+
 #### 显示标题
     <?php
     if ( is_home() ) {
@@ -178,7 +207,7 @@ wordpress学习
         $buttons[] = 'hr';
         $buttons[] = 'fontselect';
         $buttons[] = 'fontsizeselect';
-  
+ 
         return $buttons;
     }
     add_filter('mce_buttons_3', 'enable_more_buttons'); // 里面的数字是按钮行数
@@ -210,6 +239,15 @@ wordpress学习
     }
     add_action( 'widgets_init', 'xxx_widgets_init' );
 
+#### 去除Open San字体
+    function remove_open_sans()
+    {
+        wp_deregister_style('open-sans');
+        wp_register_style('open-sans', false);
+        wp_enqueue_style('open-sans', '');
+    }
+    add_action('init', 'remove_open_sans');
+
 ## 文件拆分
     header.php, sidebar.php, footer.php
     get_header(), get_sidebar(), get_footer();
@@ -224,7 +262,7 @@ wordpress学习
     plugins_url() 插件目录URL http://www.example.com/wp-content/plugins
     theme_url() 主题目录URL http://www.example.com/wp-content/themes
     wp_upload_dir() 上传目录URL (返回一个数组) http://www.example.com/wp-content/uploads
-    get_template_directory_uri() 
+    get_template_directory_uri()
 
 ## Plugin
 * Acurax Social Icons Options 设置各社交网络链接
@@ -243,16 +281,16 @@ wordpress学习
     License: GPL
     */
     /* 注册激活插件时要调用的函数 */
-    register_activation_hook( __FILE__, 'plugin_install');  
+    register_activation_hook( __FILE__, 'plugin_install'); 
     /* 注册停用插件时要调用的函数 */
-    register_deactivation_hook( __FILE__, 'plugin_remove' ); 
-    function plugin_install() { 
+    register_deactivation_hook( __FILE__, 'plugin_remove' );
+    function plugin_install() {
         /* 在数据库的 wp_options 表中添加一条记录，第二个参数为默认值 */
-        add_option("plugin_text", "", '', 'yes'); 
+        add_option("plugin_text", "", '', 'yes');
     }
-    function plugin_remove() { 
+    function plugin_remove() {
         /* 删除 wp_options 表中的对应记录 */
-        // delete_option('plugin_text'); 
+        // delete_option('plugin_text');
     }
     if( is_admin() ) {
         /*  利用 admin_menu 钩子，添加菜单 */
@@ -282,4 +320,3 @@ wordpress学习
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
-
