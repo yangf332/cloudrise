@@ -7,7 +7,7 @@ Git Community Book中文版
 
 ### 对象
 
-   三个部分：类型、大小和内容
+  三个部分：类型、大小和内容
 
   分四个类型: blob, tree, commit, tag
 
@@ -136,6 +136,42 @@ Git Community Book中文版
     git reset –soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
     git reset –hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容
     eg: git reset –-hard HEAD~3 //向前回退到第3个版本
+
+## 比较
+* git diff master..test   // 比较两个分支差异
+* git diff HEAD -- ./lib  // 限定比较目录
+
+## 追踪分支
+* git branch --track [name] origin/[name]
+
+## 查找
+* git grep -n [string]
+* git grep --name-only [string]
+* git grep -e '[string_a]' --and -e [string_b] // AND
+* git grep --all-match -e '[string_a]' -e [string_b] // OR
+
+## 撤消
+* git revert HEAD
+* git revert HEAD^
+
+## 维护Git
+* git gc   // 压缩历史信息来节约磁盘和内存空间，此操作比较耗时
+* git fsck // 运行仓库的一致性检查，此操作比较耗时
+
+## 建立公共仓库
+* git clone --bare [name] [name].git
+
+## 定制GIT
+* 更改编辑器 git config --global core.editor vim
+* 添加别名 git config --global alias.las 'cat-file commit HEAD'
+* 添加颜色 git config color.ui | color.diff auto
+* 提交模板 git config commit.template '/etc/git-commit-template'
+* 日志格式  git config format.pretty oneline
+
+## 恢复已删除分支
+* git fsck --lost-found
+* git show [hash]
+* git rebase [hash] | git merge [hash]
 
 ## 其它
     添加本地忽略列表  echo '忽略文件名' >> .git/info/exclude
