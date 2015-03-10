@@ -84,6 +84,9 @@ Linux Command
     cp filename{,.bak}
     who -b   # Time of last system boot
     printenv # 打印所有环境变量
+    创建虚拟文件
+    -- dd if=/dev/zero of={filename} bs=1M count=10 // bs(block size)指定块大小，缺省单位为Byte
+    -- du -h {filename}
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
