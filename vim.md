@@ -71,6 +71,8 @@ Vim 常用操作
     :mksession ~/.mysession.vim    // 保存session，下次直接打开即可
     [Ctrl + P]                     // 自动补全
     guu / gUU                      // 把一行变成小/大写
+    :ce | :ri | :le                // 调整文本位置
+    vim -x {filename}              // 加密
 
 ## .vimrc
     cd ~

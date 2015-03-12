@@ -57,7 +57,19 @@ Ubuntu
     apt-get install mysql-server
     apt-get install php5
     apt-get install php5-mysql
-    
+
+## 安装LNMP
+    apt-get install nginx
+    /etc/init.d/nginx start | service nginx start
+    vim /etc/nginx/sites-available/default 
+    # location ~ .php${} 打开
+    apt-get install mysql-server mysql-client
+    apt-get install pp5-fpm
+    vim /usr/share/nginx/html/test.php  
+    service php5-fpm start     
+    service nginx -t // 测试配置文件
+    service php5-fpm -t // 测试配置文件
+
 ## 安装chkconfig
     apt-get install chkconfig
     chkconfig --level 2345 apache2 on
