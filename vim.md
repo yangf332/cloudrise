@@ -107,3 +107,5 @@ Vim 常用操作
 [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html?jtss=tsina)
 
 [vim中执行shell命令](http://blog.csdn.net/topgun_chenlingyun/article/details/8013115 "vim中执行shell命令")
+
+[像IDE一样使用vim](https://github.com/yangyangwithgnu/use_vim_as_ide)
