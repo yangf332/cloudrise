@@ -248,6 +248,16 @@ wordpress学习
     }
     add_action('init', 'remove_open_sans');
 
+#### $wpdb对象
+    global $wpdb;
+    $wpdb->query('query'); // select, delete, update
+    $wpdb->insert( $table, array $data, array $format); // 
+    $wpdb->update( $table, $data, $where, $format = null, $where_format)
+    $wpdb->prepare( $sql, array('p1', 'p2'))
+    $wpdb->get_results('query', output_type)
+    $wpdb->get_var( $wpdb->prepare( $sql ) );
+    $wpdb->flush();
+
 ## 文件拆分
     header.php, sidebar.php, footer.php
     get_header(), get_sidebar(), get_footer();
@@ -308,6 +318,7 @@ wordpress学习
 
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
+* 引用wp-blog-header.php报404？应该引用wp-load.php文件
 
 ## 网上资料
 [中文文档](http://codex.wordpress.org/zh-cn:Main_Page '中文文档')
