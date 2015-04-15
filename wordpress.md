@@ -319,6 +319,7 @@ wordpress学习
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
 * 引用wp-blog-header.php报404？应该引用wp-load.php文件
+* 文章特色图片记录在哪个表中？ wp_postmeta
 
 ## 网上资料
 [中文文档](http://codex.wordpress.org/zh-cn:Main_Page '中文文档')
