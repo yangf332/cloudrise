@@ -64,8 +64,38 @@ wordpress学习
     ));
     !!注意
     结束后使用wp_reset_query()
-   
-      
+  
+#### wp_get_recent_posts( $args )
+     $args = array(
+            'numberposts' => 10,  // 文章数量
+            'offset' => 0,
+            'category' => 0,
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'include' => ,        // 要显示文章的ID
+            'exclude' => ,        // 要排除文章的ID
+            'meta_key' => ,       // 自定义字段名称
+            'meta_value' =>,      // 自定义字段的值
+            'post_type' => 'post',
+            'post_status' => 'draft, publish, future, pending, private',
+            'suppress_filters' => true
+    );
+
+#### get_terms( $args )
+     $args = array(
+            'hide_empty' => 0, 
+            'offset' => 0,
+            'category' => 0,
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'slug'  => ,
+            'hierarchical' => , // 是否返回层级分类法，默认为true
+            'name_like' => ,
+            'pad_counts' => ,   // 值为true时将计算包括$terms在内的所有子辈
+            'get' => ,          // 默认值为空。可通过为'all'赋值来改写'hide_empty'和'child_of'
+            'child_of' => ,     // 默认值为0。获取该term的所有后代
+            'parent' => ,       // 默认值为0。获取该term的直系子辈（即上辈明确为该值的term）
+    );
 
 #### 显示标题
     <?php
@@ -201,13 +231,16 @@ wordpress学习
     is_front_page
     is_attachment
 
+#### 页面跳转
+    wp_redirect( site_url(  '/wp-login.php?action=register' ) );
+
 #### 给默认编辑器添加按钮
     function enable_more_buttons( $buttons )
     {
         $buttons[] = 'hr';
         $buttons[] = 'fontselect';
         $buttons[] = 'fontsizeselect';
- 
+
         return $buttons;
     }
     add_filter('mce_buttons_3', 'enable_more_buttons'); // 里面的数字是按钮行数
@@ -251,7 +284,7 @@ wordpress学习
 #### $wpdb对象
     global $wpdb;
     $wpdb->query('query'); // select, delete, update
-    $wpdb->insert( $table, array $data, array $format); // 
+    $wpdb->insert( $table, array $data, array $format); //
     $wpdb->update( $table, $data, $where, $format = null, $where_format)
     $wpdb->prepare( $sql, array('p1', 'p2'))
     $wpdb->get_results('query', output_type)
@@ -291,7 +324,7 @@ wordpress学习
     License: GPL
     */
     /* 注册激活插件时要调用的函数 */
-    register_activation_hook( __FILE__, 'plugin_install'); 
+    register_activation_hook( __FILE__, 'plugin_install');
     /* 注册停用插件时要调用的函数 */
     register_deactivation_hook( __FILE__, 'plugin_remove' );
     function plugin_install() {
@@ -319,7 +352,7 @@ wordpress学习
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
 * 引用wp-blog-header.php报404？应该引用wp-load.php文件
-* 文章特色图片记录在哪个表中？ wp_postmeta
+
 
 ## 网上资料
 [中文文档](http://codex.wordpress.org/zh-cn:Main_Page '中文文档')
