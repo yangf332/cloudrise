@@ -29,6 +29,11 @@ mysql
         PRIMARY KEY (id),
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8
     * 注意int(11),在int类型中参数11为最大显示宽度，不影响取值范围
+    -- 复制表结构
+    create table [newtablename] like [oldtablename];
+    -- 复制所有或部分字段，或者改名
+    create table [newtablename] as ( select * from [oldtablename] );
+
 
 ## use
     select version(), current_date, now(), user();
