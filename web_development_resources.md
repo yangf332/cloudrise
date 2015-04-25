@@ -95,6 +95,7 @@ Web开发资源
 [某人的工具集，膜拜啊](http://f2e.im/static/pages/nav/index.html#6755344-tsina-1-50251-72fb614e7130783e23f259bf5de6db3a)
 
 [Chrome插件](http://www.getpostman.com/)
+[Chrome插件](https://github.com/fcapano/Edit-This-Cookie)
 
 [api设计工具](https://app.apiary.io)
 
