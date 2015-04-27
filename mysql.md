@@ -1,6 +1,5 @@
 mysql
 ============================
-记录mysql安装学习的点滴
 
 ## install
     yum install mysql
@@ -48,10 +47,10 @@ mysql
     update tablename set field1 = concat('pre', field1);
     replace into tablename(field1, field2) values (1, 2);
 
-## insert 
+## insert
     insert into tablename(field1, field2) values (1, 2);
     insert into table2(fileld1, filed2, ...) select value1, value2, ... from table1;
-    select value1, value2, ... into table2 from table1; 
+    select value1, value2, ... into table2 from table1;
 
 ## union、union all
     select * from tb union select * from tb1;      -- 会筛选掉重复的记录
@@ -95,7 +94,7 @@ mysql
 
 ## 用户变量
     set @a = 1, @b = 2;
-    select @a, @b;    
+    select @a, @b;   
 
 ## 其它
     select lpad('100015', 8, 0);
@@ -116,22 +115,22 @@ mysql
     show variables;      -- 查看配置信息
     show global status;  -- 查看MySQL服务器运行的各种状态值
     show engines;        -- 查看引擎信息，从ver5.5开始，默认为InnoDB
-    show variables like 'max_connections';  
-    show global status like 'max_used_connections';  
-    show variables like 'key_buffer_size';  
-    +-----------------+----------+  
-    | Variable_name   | Value    |  
-    +-----------------+----------+  
-    | key_buffer_size | 67108864 |  
-    +-----------------+----------+  
-    show global status like 'key_read%'; 
-    +-------------------+----------+  
-    | Variable_name     | Value    |  
-    +-------------------+----------+  
-    | Key_read_requests | 25629497 |  
-    | Key_reads         | 66071    |  
-    +-------------------+----------+  
-    key_cache_miss_rate ＝ Key_reads / Key_read_requests * 100% =0.27% 
+    show variables like 'max_connections'; 
+    show global status like 'max_used_connections'; 
+    show variables like 'key_buffer_size'; 
+    +-----------------+----------+ 
+    | Variable_name   | Value    | 
+    +-----------------+----------+ 
+    | key_buffer_size | 67108864 | 
+    +-----------------+----------+ 
+    show global status like 'key_read%';
+    +-------------------+----------+ 
+    | Variable_name     | Value    | 
+    +-------------------+----------+ 
+    | Key_read_requests | 25629497 | 
+    | Key_reads         | 66071    | 
+    +-------------------+----------+ 
+    key_cache_miss_rate ＝ Key_reads / Key_read_requests * 100% =0.27%
     show variables like 'thread_cache_size';
     show global status like 'qcache%';
     show global status like 'sort%';
@@ -140,30 +139,30 @@ mysql
     show global status like 'table_locks%';
 
 ## 表扫描情况
-    show global status like 'handler_read%';  
-    +-----------------------+-----------+  
-    | Variable_name         | Value     |  
-    +-----------------------+-----------+  
-    | Handler_read_first    | 108763    |  
-    | Handler_read_key      | 92813521  |  
-    | Handler_read_next     | 486650793 |  
-    | Handler_read_prev     | 688726    |  
-    | Handler_read_rnd      | 9321362   |  
-    | Handler_read_rnd_next | 153086384 |  
-    +-----------------------+-----------+  
-    show global status like 'com_select';  
-    +---------------+---------+  
-    | Variable_name | Value   |  
-    +---------------+---------+  
-    | Com_select    | 2693147 |  
-    +---------------+---------+  
-    表扫描率 ＝ Handler_read_rnd_next / Com_select 
+    show global status like 'handler_read%'; 
+    +-----------------------+-----------+ 
+    | Variable_name         | Value     | 
+    +-----------------------+-----------+ 
+    | Handler_read_first    | 108763    | 
+    | Handler_read_key      | 92813521  | 
+    | Handler_read_next     | 486650793 | 
+    | Handler_read_prev     | 688726    | 
+    | Handler_read_rnd      | 9321362   | 
+    | Handler_read_rnd_next | 153086384 | 
+    +-----------------------+-----------+ 
+    show global status like 'com_select'; 
+    +---------------+---------+ 
+    | Variable_name | Value   | 
+    +---------------+---------+ 
+    | Com_select    | 2693147 | 
+    +---------------+---------+ 
+    表扫描率 ＝ Handler_read_rnd_next / Com_select
     如果表扫描率超过4000，说明进行了太多表扫描，很有可能索引没有建好
 
 
 ## 启用慢查询
     show variables like '%slow%';
-    show global status like '%slow%';  
+    show global status like '%slow%'; 
     set global  slow_query_log  = on;
     +---------------------+---------------------------------+
     | Variable_name       | Value                           |
@@ -214,6 +213,47 @@ mysql
     [ON DELETE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
     [ON UPDATE {RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT}]
 
+## 索引
+    ALTER TABLE {tablename} ADD INDEX {indexname} ('{column}');
+    SHOW INDEX FROM {tablename}
+    DROP INDEX {indexname} ON {tablename}
+
+## Explain
+* id - 查询序列号，值越大优先执行级越高；id相同则按顺序执行
+* select_type
+    - SIMPLE 不使用union及子查询
+    - PRIMARY
+    - UNION
+    - DEPENDENT UNION
+    - SUBQUERY
+    - DEPENDENT SUBQUERY
+    - DERIVED
+    - UNCACHEABLE SUBQUER
+    - UNCACHEABLE UNION
+* table
+* type 非常重要，显示连接使用的类型，按最优到最差
+    - system 表仅有一行(=系统表)
+    - const
+    - eq_ref
+    - ref 可能查到多条记录
+    - ref_or_null 如同ref，但会在二次查询中找出null条目
+    - index_merge 使用了索引合并优化
+    - unique_subquery
+    - index_subquery
+    - range 只检索给定范围的行，使用索引选择行
+    - index 全表扫描，按索引次序，避免了排序，开销仍然很大
+    - all 全表扫描
+* possible_keys 指出能在表中使用哪些索引有助于查询
+* key 
+* key_len
+* ref 显示索引的哪一列被使用了
+* rows 返回请求数据的行数
+* extra 
+    - Using filesort 使用外部索引排序，可能在内存或者磁盘上，效率受重大影响
+    - Using temporary  对查询结果排序时使用临时表，常见于order by和group by，效果受重大影响
+
+
+
 ## InnoDB和MyISAM
     MyISAM优点:
         是MySQL中默认的存储引擎，ver5.5之前
@@ -247,22 +287,19 @@ mysql
 
 
 ## 报错问题
-* The used SELECT statements have a different number of columns
-    - 在使用union查询时，多个查询语句的查询字段不一致
-    
-* 找不到mysql.sock，使用find / 也不行
-    - /etc/init.d/mysql stop
-    - mysql -uroot -p
-    - 报错:Can not connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'，此路径为文件所在位置
-* 编码格式为latin1，设置为utf8后，重新登录又恢复
-    - vim /etc/mysql/my.cnf
-    - 在client节点下添加：default-character-set=utf8 
-    - 在mysqld节点下添加：character-set-server=utf8 ；collation-server=utf8_general_ci
-    - 保存后重启mysql
-* Error : Tablespace for table '`database`.`temp`' exists. Please DISCARD the tablespace before IMPORT.解决办法，createtablespace
-    - 关闭mysql操作，停止mysql服务
-    - 找到mysql安装目录data文件夹，删除损坏数据库文件（数据文件和日志文件；db.opt保留）
-    - 重启服务
+    1.  The used SELECT statements have a different number of columns
+    在使用union查询时，多个查询语句的查询字段不一致
+    2. 找不到mysql.sock，使用find / 也不行
+    /etc/init.d/mysql stop
+    mysql -uroot -p
+    报错:Can not connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
+    找到文件所在位置
+    3. 编码格式为latin1，设置为utf8后，重新登录又恢复
+    解决方法是修改配置:
+    vim /etc/mysql/my.cnf
+    在client节点下添加：  default-character-set=utf8
+    在mysqld节点下添加：   character-set-server=utf8 ；  collation-server=utf8_general_ci
+    保存后重启mysql
 
 ## 数据库范式
     第一范式(1NF)：数据库的每个字段都只能存放单一值，而且每笔记录都要能利用一个惟一的主键来加以识别
@@ -275,11 +312,11 @@ mysql
     * 改动配置后无法重启？确认使用了正确的单位。
     基本配置
     1. innodb_buffer_pool_size: 缓冲池是数据和索引缓存的地方：这个值越大越好，这能保证你在大多数的读取操作时使用的是内存而不是硬盘。
-    2. innodb_log_file_size: 
+    2. innodb_log_file_size:
     3. max_connections: 解决“Too many connections”错误
     InnoDB配置
-    4. innodb_file_per_table: 
-    5. innodb_flush_log_at_trx_commit: 
+    4. innodb_file_per_table:
+    5. innodb_flush_log_at_trx_commit:
     6. innodb_flush_method:
     7. innodb_log_buffer_size:
     其它设置
@@ -305,7 +342,7 @@ mysql
 ### 数据库设计学习笔记 (http://www.imooc.com/view/117)
     根据业务需要，结合DBMS，构造数据存储模型。实现有效的存储及高效地访问。
     设计步骤：
-        需求分析： 
+        需求分析：
             数据是什么？
             数据属性？ 时效性？过期清理或归档：永久保存；数据过大？分库分表：单库单表
             存储特点？ 永久存储|过期清理
@@ -319,13 +356,13 @@ mysql
             反范式化设计： 为了性能和读取效率违反范式
             避免使用外键约束： 降低效率、高并发变慢
             避免使用触发器：  降低效率、可能出现异常、业务逻辑复杂
-            严禁使用预留字段： 
+            严禁使用预留字段：
         维护优化：
             维护数据字典
                 select a.table_name, b.TABLE_COMMENT, a.COLUMN_NAME, a.COLUMN_TYPE, a.COLUMN_COMMENT
-                FROM information_schema.COLUMNS a 
+                FROM information_schema.COLUMNS a
                 JOIN information_schema.TABLES b
-                ON a.table_schema = b.table_schema 
+                ON a.table_schema = b.table_schema
                 AND a.table_name = b.table_name
                 WHERE a.table_name = '[tablename]';
             维护索引
@@ -350,3 +387,6 @@ mysql
 [query cache](http://blog.csdn.net/qiuyepiaoling/article/details/6004611 "query cache")
 
 [mysql用户管理和权限设置](http://www.cnblogs.com/fslnet/p/3143344.html "mysql用户管理和权限设置")
+
+
+
