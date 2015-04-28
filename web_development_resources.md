@@ -48,6 +48,8 @@ Web开发资源
 
 [百度UEditor富文本编辑器](https://github.com/fex-team/ueditor '富文本编辑器')
 
+[zclip剪切板 - 注意flash位置bug](http://www.steamdev.com/zclip/ 'zclip剪切板 - 注意flash位置bug')
+
 ## CSS
 [在线CSS Sprite合并工具，腾讯AlloyTeam出品](https://github.com/AlloyTeam/gopng)
 
