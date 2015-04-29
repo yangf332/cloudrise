@@ -369,6 +369,16 @@ mysql
             维护表结构
             表拆分
 
+### 常用SQL
+    /*
+     * 查询一个表所有字段名
+     */
+    SELECT COLUMN_NAME
+    FROM information_schema.COLUMNS
+    WHERE TABLE_SCHEMA = '{databasename}'
+    AND TABLE_NAME = '{tablename}'
+
+
 ## 网上资料
 [InnoDB 还是 MyISAM?](http://www.cnblogs.com/villion/archive/2009/07/09/1893762.html "InnoDB 还是 MyISAM?")
 
