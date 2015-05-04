@@ -117,15 +117,23 @@ wordpress学习
 #### wp_nav_menu
     主要用于生成菜单
     wp_nav_menu(array(
-        'menu' => 'header-menu',
+        'theme_location' => '', // primary|second|''
         'container' => 'nav',
         'container_class' => 'primary',
         'container_id' => '',
+        'menu' => 'header-menu', 
         'menu_class' => '',
         'menu_id' => '',
+        'before' => '',
+        'after'    => '',
+        'link_before' => '',
+        'link_after'    => '',        
+        'fallback_cb' => '',
+        'walker' => '',         // 
         'echo' => true,      // 是否打印，false时为赋值使用
         'depth' => 0,        // 显示菜单层数，默认为0，显示所有层
     ));
+
 
 #### 日志循环
     <?php
