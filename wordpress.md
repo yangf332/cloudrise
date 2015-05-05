@@ -134,6 +134,26 @@ wordpress学习
         'depth' => 0,        // 显示菜单层数，默认为0，显示所有层
     ));
 
+#### paginate_links
+    分页导航
+    global $wp_query;
+    paginate_links(array(
+          'base' => '%_%',
+          'format' => '?page=%#%',
+          'total'  => $wp_query->max_num_pages,
+          'type'      => 'array',  //array|list|plain
+          'current'   => max(1, get_query_var('paged')),
+          'show_all'  => false,    // 是否显示所有可用页码
+          'prev_next' => true,     // 是否显示上一页和下一页
+          'prev_text' => __('<<'),
+          'next_text' => __('>>'),
+          'end_size'  => 1,        // 页面显示在列表的末尾号
+          'mid_size'  => 2,        // 多少个数字到当前页面的两侧
+          'add_args'  => false,    // 添加查询字符串参数到链接
+          'add_fragment' => '',    // 添加文本追加到每个链接
+          'before_page_number' => '', // 在页码前显示的字符串
+          'after_page_number'  => '', // 在页码后显示的字符串
+     ));
 
 #### 日志循环
     <?php
