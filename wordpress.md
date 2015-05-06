@@ -153,7 +153,19 @@ wordpress学习
           'add_fragment' => '',    // 添加文本追加到每个链接
           'before_page_number' => '', // 在页码前显示的字符串
           'after_page_number'  => '', // 在页码后显示的字符串
-     ));
+    ));
+
+#### 自定义菜单
+    function theme_setup()
+    {
+        if (function_exists('register_nav_menus')) {
+            register_nav_menus( array(
+                'primary'   => __( 'Navigation Menu', 'mousefinance' ),
+                'secondary' => __( 'Page Menu', 'mousefinance' ),
+            ) );
+        }
+    }
+
 
 #### 日志循环
     <?php
