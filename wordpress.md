@@ -190,6 +190,7 @@ wordpress学习
         <?php if (get_next_post()) {next_post_link(' %link ', '%title', true) ; }?>
     </div>
     <?php endif; ?>
+    // next_post_link($format=’%link &raquo;’, $link=’%title’, $in_same_cat =false, $excluded_categories = ”)
 
 #### 根据post_id获取特色图片url
     /**
