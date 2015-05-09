@@ -1,3 +1,4 @@
+wp_nav_menu 和自定义菜单
 wordpress学习
 ============================
 
@@ -293,6 +294,22 @@ wordpress学习
     add_image_size( 'one', 125, 75, true );
     add_image_size( 'two', 250, 145, true );
     add_image_size( 'three', 500, 290, true );
+    
+#### 上传图片
+    <?php add_thickbox(); ?>
+    <script type="text/javascript">
+    $('table').delegate('.thickbox', 'click', function(){
+        uploadID = $(this).prev('input');
+        tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+        return false;
+    })
+
+    window.send_to_editor = function(html) {
+      imgurl = jQuery('img', html).attr('src');
+      uploadID.val(imgurl);
+      tb_remove();
+    }
+    </script>
 
 #### 注册管理后台（外观-》小工具+菜单）
     /**
