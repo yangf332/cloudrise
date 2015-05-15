@@ -26,6 +26,9 @@ Ubuntu
         PermitRootLogin no
         PasswordAuthentication no
         UsePAM no
+        // 保持连接状态
+        TCPKeepAlive yes
+        ClientAliveCountMax 360
     /etc/init.d/ssh restart
     // 认证日志
     grep sshd /var/log/auth.log.0
