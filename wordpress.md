@@ -339,6 +339,21 @@ wordpress学习
     }
     add_action('init', 'remove_open_sans');
 
+#### 自动更新
+* Update Types
+  - Core updates
+  - Plugin updates
+  - Theme updates
+  - Translation file updates
+* 禁用
+  - define( 'AUTOMATIC_UPDATER_DISABLED', true ); 或者 add_filter( 'automatic_updater_disabled', '__return_true' ); // wp-config.php, completely disable all types of automatic updates
+  - define( 'WP_AUTO_UPDATE_CORE', false );  // wp-config.php, disable core updates
+  - define( 'WP_AUTO_UPDATE_CORE', 'minor' ); // 启用小版本核心更新
+  - define( 'WP_AUTO_UPDATE_CORE', 'major' ); // 启用大版本核心更新
+  - add_filter( 'auto_update_translation', '__return_false' );  // 翻译文件更新
+  - add_filter( 'auto_update_theme', '__return_true' );
+  - add_filter( 'auto_update_plugin', '__return_true' );
+
 #### $wpdb对象
     global $wpdb;
     $wpdb->query('query'); // select, delete, update
