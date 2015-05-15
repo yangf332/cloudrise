@@ -78,6 +78,9 @@ Web开发资源
 ## 数据库
 [SQLyog](https://www.webyog.com/)
 
+## PHP
+[mobile detect](http://mobiledetect.net/)
+
 ## markdown
 [Mou](http://25.io/mou/)
 
