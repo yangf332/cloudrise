@@ -99,7 +99,6 @@ wordpress学习
     );
 
 #### 显示标题
-    <?php
     if ( is_home() ) {
         bloginfo( 'name' ); echo ' - ';  bloginfo('description');
     } elseif ( is_category() ) {
@@ -110,7 +109,9 @@ wordpress学习
         echo '搜索结果'; echo ' - '; bloginfo('name');
     } elseif ( is_404() ) {
         echo '页面未找到';
-    } else {
+    } elseif ( is_user_logged_in() ) {
+        echo '';
+    }else {
         wp_title('', true);
     }
     ?>
@@ -133,6 +134,7 @@ wordpress学习
         'walker' => '',         // 
         'echo' => true,      // 是否打印，false时为赋值使用
         'depth' => 0,        // 显示菜单层数，默认为0，显示所有层
+        'items_wrap' => '<ol id="%1$s" class="%2$s">%3$s</ol>',
     ));
 
 #### paginate_links
