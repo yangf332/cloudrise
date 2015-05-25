@@ -38,13 +38,11 @@ Git Community Book中文版
 ##安装Git
   
   * linux:
-    
     $ yum install git-core
-    
-   $ apt-get install git-core
+    $ apt-get install git-core
   
   * Windows:
-    
+  
     下载安装msysGit
 
 ##配置
@@ -116,6 +114,8 @@ Git Community Book中文版
     git rm filename1 filename2
     git rm -r fold/
     git commit -m 'rm file'
+    git clean -n   // 显示将要删除的文件和目录
+    git clean -df  // 删除（没有git add的）文件和目录
   
 ##重命名
     git mv old.txt new.txt
