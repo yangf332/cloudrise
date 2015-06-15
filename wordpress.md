@@ -1,7 +1,6 @@
-wp_nav_menu 和自定义菜单
 wordpress学习
 ============================
-
+ 
 ## 主题文件说明
 * index.php  ---- 首页 （必需）
 * style.css  ---- 样式表及主题说明文件 （必需）
@@ -65,33 +64,33 @@ wordpress学习
     ));
     !!注意
     结束后使用wp_reset_query()
-  
+ 
 #### wp_get_recent_posts( $args )
      $args = array(
             'numberposts' => 10,  // 文章数量
-            'offset' => 0,
-            'category' => 0,
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-            'include' => ,        // 要显示文章的ID
-            'exclude' => ,        // 要排除文章的ID
-            'meta_key' => ,       // 自定义字段名称
-            'meta_value' =>,      // 自定义字段的值
-            'post_type' => 'post',
+            'offset'      => 0,
+            'category'    => 0,
+            'orderby'     => 'post_date',
+            'order'       => 'DESC',
+            'include'     => ,        // 要显示文章的ID
+            'exclude'     => ,        // 要排除文章的ID
+            'meta_key'    => ,       // 自定义字段名称
+            'meta_value'  =>,      // 自定义字段的值
+            'post_type'   => 'post',
             'post_status' => 'draft, publish, future, pending, private',
             'suppress_filters' => true
     );
 
 #### get_terms( $args )
      $args = array(
-            'hide_empty' => 0, 
-            'offset' => 0,
-            'category' => 0,
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-            'slug'  => ,
+            'hide_empty' => 0,
+            'offset'     => 0,
+            'category'   => 0,
+            'orderby'    => 'post_date',
+            'order'      => 'DESC',
+            'slug'       => '',
             'hierarchical' => , // 是否返回层级分类法，默认为true
-            'name_like' => ,
+            'name_like'  => ,
             'pad_counts' => ,   // 值为true时将计算包括$terms在内的所有子辈
             'get' => ,          // 默认值为空。可通过为'all'赋值来改写'hide_empty'和'child_of'
             'child_of' => ,     // 默认值为0。获取该term的所有后代
@@ -99,6 +98,7 @@ wordpress学习
     );
 
 #### 显示标题
+    <?php
     if ( is_home() ) {
         bloginfo( 'name' ); echo ' - ';  bloginfo('description');
     } elseif ( is_category() ) {
@@ -123,15 +123,15 @@ wordpress学习
         'container' => 'nav',
         'container_class' => 'primary',
         'container_id' => '',
-        'menu' => 'header-menu', 
+        'menu' => 'header-menu',
         'menu_class' => '',
         'menu_id' => '',
         'before' => '',
         'after'    => '',
         'link_before' => '',
-        'link_after'    => '',        
+        'link_after'    => '',       
         'fallback_cb' => '',
-        'walker' => '',         // 
+        'walker' => '',         //
         'echo' => true,      // 是否打印，false时为赋值使用
         'depth' => 0,        // 显示菜单层数，默认为0，显示所有层
         'items_wrap' => '<ol id="%1$s" class="%2$s">%3$s</ol>',
@@ -208,6 +208,32 @@ wordpress学习
         $url = ( isset($attachment_image) && !empty($attachment_image) ) ? $attachment_image[0] :  $default_image;
         return $url;
     }
+
+#### 加载资源文件
+    function theme_scripts_styles()
+    {
+        wp_deregister_style('dashicons');
+        wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), '20150612');
+        wp_enqueue_script('forIE', get_template_directory_uri() . '/js/test.js', array(), '20150612');
+        wp_style_add_data( 'forIE', 'conditional', 'lt IE 9' );
+        wp_add_inline_style('custom-style', '.classname {color:red;}');
+    }
+    add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
+
+#### rewrite
+    function add_query_vars($aVars) {
+        $aVars[] = "param";
+        return $aVars;
+    }
+    // hook add_query_vars function into query_vars
+    add_filter('query_vars', 'add_query_vars');
+    function demo_rewrite_rules($aRules) {
+        $aNewRules = array('(demo)/([^/]+)/?\.html$' => 'index.php?category_name=$matches[1]&param=$matches[2]');
+        $aRules = $aNewRules + $aRules;
+        return $aRules;
+    }
+    add_filter('rewrite_rules_array', 'demo_rewrite_rules');
+
 
 #### 获取参数
     get_query_var()
@@ -296,22 +322,6 @@ wordpress学习
     add_image_size( 'one', 125, 75, true );
     add_image_size( 'two', 250, 145, true );
     add_image_size( 'three', 500, 290, true );
-    
-#### 上传图片
-    <?php add_thickbox(); ?>
-    <script type="text/javascript">
-    $('table').delegate('.thickbox', 'click', function(){
-        uploadID = $(this).prev('input');
-        tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-        return false;
-    })
-
-    window.send_to_editor = function(html) {
-      imgurl = jQuery('img', html).attr('src');
-      uploadID.val(imgurl);
-      tb_remove();
-    }
-    </script>
 
 #### 注册管理后台（外观-》小工具+菜单）
     /**
@@ -328,9 +338,9 @@ wordpress学习
             'before_title'  => '<h3 class="widget-title">',
             'after_title'   => '</h3>',
         ) );
-
     }
     add_action( 'widgets_init', 'xxx_widgets_init' );
+    // 调用：dynamic_sidebar('sidebar-1');
 
 #### 去除Open San字体
     function remove_open_sans()
@@ -355,6 +365,7 @@ wordpress学习
   - add_filter( 'auto_update_translation', '__return_false' );  // 翻译文件更新
   - add_filter( 'auto_update_theme', '__return_true' );
   - add_filter( 'auto_update_plugin', '__return_true' );
+
 
 #### $wpdb对象
     global $wpdb;
@@ -424,6 +435,9 @@ wordpress学习
     // main function
     }
 
+#### 其它
+* 文章列表页每页显示数量：get_option('posts_per_page');
+
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
 * 引用wp-blog-header.php报404？应该引用wp-load.php文件
@@ -440,3 +454,11 @@ wordpress学习
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
+[自动更新](https://codex.wordpress.org/Configuring_Automatic_Background_Updates '自动更新')
+
+
+
+简洁的面包屑
+
+简洁的分页
+
