@@ -78,7 +78,8 @@ wordpress学习
             'meta_value'  =>,      // 自定义字段的值
             'post_type'   => 'post',
             'post_status' => 'draft, publish, future, pending, private',
-            'suppress_filters' => true
+            'suppress_filters' => true,
+            'meta_key' => '_thumbnail_id', // 有缩略图
     );
 
 #### get_terms( $args )
@@ -129,7 +130,7 @@ wordpress学习
         'before' => '',
         'after'    => '',
         'link_before' => '',
-        'link_after'    => '',       
+        'link_after'    => '',      
         'fallback_cb' => '',
         'walker' => '',         //
         'echo' => true,      // 是否打印，false时为赋值使用
@@ -342,6 +343,47 @@ wordpress学习
     add_action( 'widgets_init', 'xxx_widgets_init' );
     // 调用：dynamic_sidebar('sidebar-1');
 
+#### wp_head()输出的元素标签信息
+  * 微格式XFN(XHTML FRIENDS NETWORK): http://gmpg.org/xfn/
+
+      `<link rel="profile" href="http://gmpg.org/xfn/11">`
+
+  * 隐性显示的WordPress版本信息，默认添加。可以被黑客利用，攻击特定版本的WordPress漏洞。
+
+      `<meta name="generator" content="WordPress 3.1.3" />`
+
+  * 离线编辑器的开放接口：RSD是一个广义的接口；wlwmanifest是针对微软Live Writer编辑器的
+
+      `<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://example.com/xmlrpc.php?rsd" />
+      <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://example.com/wp-includes/wlwmanifest.xml" />`
+
+  * pingback 新发布文章时，可以自动发送给相关网站或者搜索引擎的API，促进你的新文章收录
+      
+      `<link rel="pingback" href="http://www.mousefinance.com/xmlrpc.php">`
+  
+  * feed
+  
+    `<link rel="alternate" type="application/rss+xml" title="feed名" href="http://example.com/feed/" />`
+  
+  * 删除标签代码
+   
+    `
+          remove_action( 'wp_head', 'feed_links', 2 );  
+          remove_action( 'wp_head', 'feed_links_extra', 3 );  
+          remove_action( 'wp_head', 'rsd_link',);  
+          remove_action( 'wp_head', 'wlwmanifest_link',);  
+          remove_action( 'wp_head', 'index_rel_link',);  
+          remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );  
+          remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );  
+          remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );  
+          remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );  
+          remove_action( 'wp_head', 'wp_generator',);  
+          remove_action( 'wp_head', 'rel_canonical',);  
+          remove_action( 'wp_footer', 'wp_print_footer_scripts',);  
+          remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );  
+          remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
+    `
+
 #### 去除Open San字体
     function remove_open_sans()
     {
@@ -455,10 +497,3 @@ wordpress学习
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
 [自动更新](https://codex.wordpress.org/Configuring_Automatic_Background_Updates '自动更新')
-
-
-
-简洁的面包屑
-
-简洁的分页
-
