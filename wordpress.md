@@ -366,24 +366,38 @@ wordpress学习
     `<link rel="alternate" type="application/rss+xml" title="feed名" href="http://example.com/feed/" />`
   
   * 删除标签代码
-   
-    `
-          remove_action( 'wp_head', 'feed_links', 2 );  
-          remove_action( 'wp_head', 'feed_links_extra', 3 );  
-          remove_action( 'wp_head', 'rsd_link',);  
-          remove_action( 'wp_head', 'wlwmanifest_link',);  
-          remove_action( 'wp_head', 'index_rel_link',);  
-          remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );  
-          remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );  
-          remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );  
-          remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );  
-          remove_action( 'wp_head', 'wp_generator',);  
-          remove_action( 'wp_head', 'rel_canonical',);  
-          remove_action( 'wp_footer', 'wp_print_footer_scripts',);  
-          remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );  
-          remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
-    `
+    - remove_action( 'wp_head', 'feed_links', 2 );  
+    - remove_action( 'wp_head', 'feed_links_extra', 3 );  
+    - remove_action( 'wp_head', 'rsd_link',);  
+    - remove_action( 'wp_head', 'wlwmanifest_link',);  
+    - remove_action( 'wp_head', 'index_rel_link',);  
+    - remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );  
+    - remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );  
+    - remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );  
+    - remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );  
+    - remove_action( 'wp_head', 'wp_generator',);  
+    - remove_action( 'wp_head', 'rel_canonical',);  
+    - remove_action( 'wp_footer', 'wp_print_footer_scripts',);  
+    - remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );  
+    - remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 
+
+#### 添加脚本
+
+    function theme_scripts_styles()
+    {
+        wp_enqueue_style('style', get_template_directory_uri() . '/css/ican.css', array(), '20150619');
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '20150619');
+        wp_style_add_data('style', 'conditional', 'lt IE 9'); // 条件注释
+        wp_dequeue_style('style');  // 取消队列
+        wp_add_inline_style('custom-style', 'color:red');  // 添加内联样式
+        wp_enqueue_scripts('js');
+        admin_enqueue_scripts('admin');
+        login_enqueue_scripts('login');
+        wp_print_scripts('jquery');  // 在wp_head调用位置直接打印脚本加载，而不是加入到WP的处理任务中
+    }
+    add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
+    
 #### 去除Open San字体
     function remove_open_sans()
     {
