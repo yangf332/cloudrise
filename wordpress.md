@@ -398,6 +398,24 @@ wordpress学习
     }
     add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
     
+#### 使用图片上传
+    <?php add_thickbox(); ?>
+    <script type="text/javascript">
+    $(function(){
+        $('table').delegate('.thickbox', 'click', function(){
+            uploadID = $(this).prev('input');
+            tb_show('', '<?php echo site_url("/wp-admin/media-upload.php?type=image&TB_iframe=true"); ?>');
+            return false;
+        })
+
+        window.send_to_editor = function(html) {
+          imgurl = jQuery('img', html).attr('src');
+          uploadID.val(imgurl);
+          tb_remove();
+        }
+    })
+    </script>    
+    
 #### 去除Open San字体
     function remove_open_sans()
     {
@@ -496,7 +514,7 @@ wordpress学习
 
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
-* 引用wp-blog-header.php报404？应该引用wp-load.php文件
+* 引用wp-blog-header.php报404？应该引用wp-load.php文件       include_once( __FILE__ . '/wp-load.php' );
 
 
 ## 网上资料
