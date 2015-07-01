@@ -196,6 +196,27 @@ wordpress学习
     <?php endif; ?>
     // next_post_link($format=’%link &raquo;’, $link=’%title’, $in_same_cat =false, $excluded_categories = ”)
 
+#### 分页
+     if ( ! function_exists('paging_nav')) :
+         function paging_nav()
+         {
+             global $wp_query;
+             $big = 999999999; // 需要一个不太可能的整数
+             $pagination_links = paginate_links(array(
+                 'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                 'format' => '?page=%#%',
+                 'current' => max(1, get_query_var('paged')),
+                 'total' => $wp_query->max_num_pages,
+                 'prev_text' => __('«'),
+                 'next_text' => __('»'),
+                 'type' => 'array',
+             ));
+
+             return $pagination_links;
+         }
+     endif;
+
+
 #### 根据post_id获取特色图片url
     /**
     * 根据post_id获取特色图片url
