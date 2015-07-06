@@ -435,7 +435,13 @@ wordpress学习
           tb_remove();
         }
     })
-    </script>    
+    </script>  
+    
+    // 更改上传图片路径
+    if (get_option('upload_path') == 'wp-content/uploads' || get_option('upload_path') == null) {
+        update_option('upload_path', WP_CONTENT_DIR . '/uploads');
+    }
+  
     
 #### 去除Open San字体
     function remove_open_sans()
