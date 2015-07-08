@@ -442,6 +442,26 @@ wordpress学习
         update_option('upload_path', WP_CONTENT_DIR . '/uploads');
     }
   
+#### wp标题
+    if (!function_exists('theme_title'))
+    {
+        function theme_title()
+        {
+            if ( is_home() ) {
+                bloginfo( 'name' ); echo ' - ';  bloginfo('description');
+            } elseif ( is_category() ) {
+                single_cat_title();
+            } elseif ( is_single() || is_page() ) {
+                single_post_title();
+            } elseif ( is_search() ) {
+                echo 'result'; echo ' - '; bloginfo('name');
+            } elseif ( is_404() ) {
+                echo 'page not found';
+            } else {
+                wp_title('', true);
+            }
+        }
+    }
     
 #### 去除Open San字体
     function remove_open_sans()
