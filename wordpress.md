@@ -231,16 +231,6 @@ wordpress学习
         return $url;
     }
 
-#### 加载资源文件
-    function theme_scripts_styles()
-    {
-        wp_deregister_style('dashicons');
-        wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), '20150612');
-        wp_enqueue_script('forIE', get_template_directory_uri() . '/js/test.js', array(), '20150612');
-        wp_style_add_data( 'forIE', 'conditional', 'lt IE 9' );
-        wp_add_inline_style('custom-style', '.classname {color:red;}');
-    }
-    add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
 
 #### rewrite
     function add_query_vars($aVars) {
@@ -407,8 +397,10 @@ wordpress学习
 
     function theme_scripts_styles()
     {
-        wp_enqueue_style('style', get_template_directory_uri() . '/css/ican.css', array(), '20150619');
+        wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), '20150619');
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '20150619');
+        wp_enqueue_script('forIE', get_template_directory_uri() . '/js/test.js', array(), '20150612', true); // 第5个参数为true，则加载在wp_footer()中
+        wp_style_add_data( 'forIE', 'conditional', 'lt IE 9' );
         wp_style_add_data('style', 'conditional', 'lt IE 9'); // 条件注释
         wp_dequeue_style('style');  // 取消队列
         wp_add_inline_style('custom-style', 'color:red');  // 添加内联样式
@@ -419,6 +411,7 @@ wordpress学习
     }
     add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
     
+
 #### 使用图片上传
     <?php add_thickbox(); ?>
     <script type="text/javascript">
