@@ -137,6 +137,9 @@ wordpress学习
         'depth' => 0,        // 显示菜单层数，默认为0，显示所有层
         'items_wrap' => '<ol id="%1$s" class="%2$s">%3$s</ol>',
     ));
+    // 去掉自带ul,li标签
+    $args = array('echo' => false);
+    echo strip_tags( wp_nav_menu($args), '<a>');
 
 #### paginate_links
     分页导航
