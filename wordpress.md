@@ -180,7 +180,7 @@ wordpress学习
             the_title(); the_author();the_category(', ');
             the_permalink(); the_ID();
                the_content();
-            posts_nav_link('in between','before','after');
+            posts_nav_link('in between','before','after'); //previous_posts_link('<-');  next_posts_link('→'); 
             comments_popup_link('No Comments »', '1 Comment »', '% Comments »');
             edit_post_link('Edit', ' | ', '');
     endwhile;
@@ -458,6 +458,43 @@ wordpress学习
             }
         }
     }
+    
+#### 标签云 wp_tag_cloud
+    <?php
+    $args = array(
+    'smallest'                  => 8,
+    'largest'                   => 22,
+    'unit'                      => 'pt',
+    'number'                    => 45,  // 显示个数
+    'format'                    => 'flat', | array
+    'separator'                 => "\n",
+    'orderby'                   => 'name',
+    'order'                     => 'ASC',
+    'exclude'                   => null,
+    'include'                   => null,
+    'topic_count_text_callback' => default_topic_count_text,
+    'link'                      => 'view',
+    'taxonomy'                  => 'post_tag',
+    'echo'                      => true,
+    'child_of'                  => null, // see Note!
+    );
+    wp_tag_cloud( $args );
+    ?>
+
+#### theme_tags
+    if (!function_exists('theme_tags'))
+    {
+        function theme_tags($post_id = null)
+        {
+            $tag_list = get_the_tags($post_id);
+            if (!empty($tag_list)) {
+                foreach ($tag_list as $tag) {
+                    echo '<a href="' . site_url('/tag/' . $tag->slug . '/') . '">' . $tag->name . '</a>';
+                }
+            }
+        }
+    }
+    
     
 #### 去除Open San字体
     function remove_open_sans()
