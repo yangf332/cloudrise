@@ -140,6 +140,14 @@ wordpress学习
     // 去掉自带ul,li标签
     $args = array('echo' => false);
     echo strip_tags( wp_nav_menu($args), '<a>');
+    // walk
+    $args = array('walker' => new my_walker() );
+    class my_walker extends Walker_Nav_Menu {
+        function start_lvl()
+        function start_el()
+        function end_lvl()
+        function end_el()
+    }
 
 #### paginate_links
     分页导航
@@ -260,6 +268,12 @@ wordpress学习
 #### 分类
     $cate = get_the_category($val['ID']);
     $cate = $cate[0];
+    // 
+    $thisCat = get_category(get_query_var('cat'), false);
+    $thisCat = get_category($cat_ID);
+    // 
+    get_category_link($cat_ID); get_cat_name($cat_ID);
+
 
 #### 分类链接
     wp_list_cats();
@@ -604,6 +618,7 @@ wordpress学习
 [模板标签](http://codex.wordpress.org/zh-cn:%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE '模板标签')
 [插件API](http://codex.wordpress.org/zh-cn:%E6%8F%92%E4%BB%B6_API '插件API')
 
+[Function](http://codex.wordpress.org/Function_Reference/xxx 'Function')
 [Action Reference](http://codex.wordpress.org/Plugin_API/Action_Reference "Action Reference")
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
