@@ -609,6 +609,13 @@ wordpress学习
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
 * 引用wp-blog-header.php报404？应该引用wp-load.php文件       include_once( __FILE__ . '/wp-load.php' );
+* 安装插件时需要提供FTP帐号？
+  - 修改目录权限；
+  - 修改wp-config.php
+    - define('FS_METHOD', 'direct');
+    - define('FS_CHMOD_DIR', 0777);
+    - define('FS_CHMOD_FILE', 0777);
+
 
 
 ## 网上资料
