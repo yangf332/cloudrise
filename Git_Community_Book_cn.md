@@ -22,7 +22,6 @@ Git Community Book中文版
   * git show blob_sha1; 
   * git log , git show -s --pretty=raw commit_sha1;
   * git cat-file tag v1.5;
-
   
 ##Git目录与工作目录
 
@@ -88,6 +87,13 @@ Git Community Book中文版
     git log --graph --oneline
     git log --pretty=[raw|short|format] //格式化日志
     git log --pretty=format:'%h : %s' --graph
+    git log --author=Andy
+    git log --grep="something in the message"
+    git log [filename]
+    git log branch1 branch2 ^master //查看在branch1, branch2但不在master分支上的提交
+    
+    
+  
 
 ##比较提交
     git diff
@@ -125,6 +131,7 @@ Git Community Book中文版
 
 ##远程仓库相关
     查看远程仓库：$ git remote -v
+    查看远程仓库：$ git remote show origin
     添加远程仓库：$ git remote add [name] [url]
     删除远程仓库：$ git remote rm [name]
     修改远程仓库：$ git remote set-url --push[name][newUrl]
@@ -134,6 +141,7 @@ Git Community Book中文版
 ## 备份工作区
     git stash save {name}
     git stash list
+    git stash apply stash@{1}
     git stash pop
     git stash clear
 
