@@ -175,8 +175,8 @@ wordpress学习
     {
         if (function_exists('register_nav_menus')) {
             register_nav_menus( array(
-                'primary'   => __( 'Navigation Menu', 'mousefinance' ),
-                'secondary' => __( 'Page Menu', 'mousefinance' ),
+                'primary'   => __( 'Navigation Menu', 'website' ),
+                'secondary' => __( 'Page Menu', 'website' ),
             ) );
         }
     }
@@ -620,14 +620,23 @@ wordpress学习
 
 ## 网上资料
 [中文文档](http://codex.wordpress.org/zh-cn:Main_Page '中文文档')
+
 [函数参考](http://codex.wordpress.org/zh-cn:%E5%87%BD%E6%95%B0%E5%8F%82%E8%80%83 '函数参考')
+
 [条件标签](http://codex.wordpress.org/zh-cn:%E6%9D%A1%E4%BB%B6%E6%A0%87%E7%AD%BE "条件标签")
+
 [模板标签](http://codex.wordpress.org/zh-cn:%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE '模板标签')
+
 [插件API](http://codex.wordpress.org/zh-cn:%E6%8F%92%E4%BB%B6_API '插件API')
 
 [Function](http://codex.wordpress.org/Function_Reference/xxx 'Function')
+
 [Action Reference](http://codex.wordpress.org/Plugin_API/Action_Reference "Action Reference")
+
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
+
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
+
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
+
 [自动更新](https://codex.wordpress.org/Configuring_Automatic_Background_Updates '自动更新')
