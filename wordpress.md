@@ -387,7 +387,7 @@ wordpress学习
 
   * pingback 新发布文章时，可以自动发送给相关网站或者搜索引擎的API，促进你的新文章收录
       
-      `<link rel="pingback" href="http://www.mousefinance.com/xmlrpc.php">`
+      `<link rel="pingback" href="http://www.website.com/xmlrpc.php">`
   
   * feed
   

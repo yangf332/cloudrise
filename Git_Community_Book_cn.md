@@ -188,4 +188,6 @@ Git Community Book中文版
 * git rebase [hash] | git merge [hash]
 
 ## 其它
-    添加本地忽略列表  echo '忽略文件名' >> .git/info/exclude
+* 添加本地忽略列表  echo '忽略文件名' >> .git/info/exclude
+* git添加空文件夹：在文件夹中添加一个.gitkeep文件
+* 退回到git add上一步：git rm -r --cached .
