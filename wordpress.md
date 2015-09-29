@@ -82,7 +82,7 @@ wordpress学习
             'meta_key' => '_thumbnail_id', // 有缩略图
     );
 
-#### get_terms( $args )
+#### get_terms($taxonomies, $args )
      $args = array(
             'hide_empty' => 0,
             'offset'     => 0,
@@ -97,6 +97,9 @@ wordpress学习
             'child_of' => ,     // 默认值为0。获取该term的所有后代
             'parent' => ,       // 默认值为0。获取该term的直系子辈（即上辈明确为该值的term）
     );
+    get_terms( array('category'), $args);
+
+
 
 #### 显示标题
     <?php
