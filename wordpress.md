@@ -1,5 +1,4 @@
-wordpress学习
-============================
+wordpress学习============================
  
 ## 主题文件说明
 * index.php  ---- 首页 （必需）
@@ -99,8 +98,6 @@ wordpress学习
     );
     get_terms( array('category'), $args);
 
-
-
 #### 显示标题
     <?php
     if ( is_home() ) {
@@ -133,7 +130,7 @@ wordpress学习
         'before' => '',
         'after'    => '',
         'link_before' => '',
-        'link_after'    => '',      
+        'link_after'    => '',     
         'fallback_cb' => '',
         'walker' => '',         //
         'echo' => true,      // 是否打印，false时为赋值使用
@@ -146,10 +143,10 @@ wordpress学习
     // walk
     $args = array('walker' => new my_walker() );
     class my_walker extends Walker_Nav_Menu {
-        function start_lvl()
-        function start_el()
-        function end_lvl()
-        function end_el()
+        function start_lvl() // Starts the list before the elements are added
+        function start_el()  // Start the element output
+        function end_lvl()  // Ends the list of after the elements are added
+        function end_el()   // Ends the element output, if needed
     }
 
 #### paginate_links
@@ -191,7 +188,7 @@ wordpress学习
             the_title(); the_author();the_category(', ');
             the_permalink(); the_ID();
                the_content();
-            posts_nav_link('in between','before','after'); //previous_posts_link('<-');  next_posts_link('→'); 
+            posts_nav_link('in between','before','after'); //previous_posts_link('<-');  next_posts_link('→');
             comments_popup_link('No Comments »', '1 Comment »', '% Comments »');
             edit_post_link('Edit', ' | ', '');
     endwhile;
@@ -271,10 +268,10 @@ wordpress学习
 #### 分类
     $cate = get_the_category($val['ID']);
     $cate = $cate[0];
-    // 
+    //
     $thisCat = get_category(get_query_var('cat'), false);
     $thisCat = get_category($cat_ID);
-    // 
+    //
     get_category_link($cat_ID); get_cat_name($cat_ID);
 
 
@@ -389,27 +386,27 @@ wordpress学习
       <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://example.com/wp-includes/wlwmanifest.xml" />`
 
   * pingback 新发布文章时，可以自动发送给相关网站或者搜索引擎的API，促进你的新文章收录
-      
+     
       `<link rel="pingback" href="http://www.website.com/xmlrpc.php">`
-  
+ 
   * feed
-  
+ 
     `<link rel="alternate" type="application/rss+xml" title="feed名" href="http://example.com/feed/" />`
-  
+ 
   * 删除标签代码
-    - remove_action( 'wp_head', 'feed_links', 2 );  
-    - remove_action( 'wp_head', 'feed_links_extra', 3 );  
-    - remove_action( 'wp_head', 'rsd_link',);  
-    - remove_action( 'wp_head', 'wlwmanifest_link',);  
-    - remove_action( 'wp_head', 'index_rel_link',);  
-    - remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );  
-    - remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );  
-    - remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );  
-    - remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 );  
-    - remove_action( 'wp_head', 'wp_generator',);  
-    - remove_action( 'wp_head', 'rel_canonical',);  
-    - remove_action( 'wp_footer', 'wp_print_footer_scripts',);  
-    - remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );  
+    - remove_action( 'wp_head', 'feed_links', 2 ); 
+    - remove_action( 'wp_head', 'feed_links_extra', 3 ); 
+    - remove_action( 'wp_head', 'rsd_link',); 
+    - remove_action( 'wp_head', 'wlwmanifest_link',); 
+    - remove_action( 'wp_head', 'index_rel_link',); 
+    - remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
+    - remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); 
+    - remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
+    - remove_action( 'publish_future_post', 'check_and_publish_future_post', 10, 1 ); 
+    - remove_action( 'wp_head', 'wp_generator',); 
+    - remove_action( 'wp_head', 'rel_canonical',); 
+    - remove_action( 'wp_footer', 'wp_print_footer_scripts',); 
+    - remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 ); 
     - remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 
 
@@ -430,7 +427,7 @@ wordpress学习
         wp_print_scripts('jquery');  // 在wp_head调用位置直接打印脚本加载，而不是加入到WP的处理任务中
     }
     add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
-    
+   
 
 #### 使用图片上传
     <?php add_thickbox(); ?>
@@ -448,13 +445,13 @@ wordpress学习
           tb_remove();
         }
     })
-    </script>  
-    
+    </script> 
+   
     // 更改上传图片路径
     if (get_option('upload_path') == 'wp-content/uploads' || get_option('upload_path') == null) {
         update_option('upload_path', WP_CONTENT_DIR . '/uploads');
     }
-  
+ 
 #### wp标题
     if (!function_exists('theme_title'))
     {
@@ -475,7 +472,7 @@ wordpress学习
             }
         }
     }
-    
+   
 #### 标签云 wp_tag_cloud
     <?php
     $args = array(
@@ -511,8 +508,8 @@ wordpress学习
             }
         }
     }
-    
-    
+   
+   
 #### 去除Open San字体
     function remove_open_sans()
     {
@@ -618,28 +615,20 @@ wordpress学习
     - define('FS_METHOD', 'direct');
     - define('FS_CHMOD_DIR', 0777);
     - define('FS_CHMOD_FILE', 0777);
+* 文章特色图片记录在wp_postmeta表中， meta_key = '_thumbnail_id';
 
 
 
 ## 网上资料
 [中文文档](http://codex.wordpress.org/zh-cn:Main_Page '中文文档')
-
 [函数参考](http://codex.wordpress.org/zh-cn:%E5%87%BD%E6%95%B0%E5%8F%82%E8%80%83 '函数参考')
-
 [条件标签](http://codex.wordpress.org/zh-cn:%E6%9D%A1%E4%BB%B6%E6%A0%87%E7%AD%BE "条件标签")
-
 [模板标签](http://codex.wordpress.org/zh-cn:%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE '模板标签')
-
 [插件API](http://codex.wordpress.org/zh-cn:%E6%8F%92%E4%BB%B6_API '插件API')
 
 [Function](http://codex.wordpress.org/Function_Reference/xxx 'Function')
-
 [Action Reference](http://codex.wordpress.org/Plugin_API/Action_Reference "Action Reference")
-
 [ifonder主题系列教程](http://www.ifonder.com/287.html "ifonder主题系列教程")
-
 [WordPress.org China](http://cn.wordpress.org/ 'WordPress.org China')
-
 [hook机制](http://www.cnblogs.com/jocobHerbertPage/archive/2012/09/17/2689780.html 'hook机制')
-
 [自动更新](https://codex.wordpress.org/Configuring_Automatic_Background_Updates '自动更新')
