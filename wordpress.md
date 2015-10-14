@@ -615,7 +615,12 @@ wordpress学习============================
     - define('FS_METHOD', 'direct');
     - define('FS_CHMOD_DIR', 0777);
     - define('FS_CHMOD_FILE', 0777);
-* 文章特色图片记录在wp_postmeta表中， meta_key = '_thumbnail_id';
+* 文章特色图片记录在wp_postmeta, wp_posts表中
+  - wp_posts中post_type = 'attachment'
+  - wp_postmeta中meta_key = '_thumbnail_id'; // 记录文章对应图片 post_id文章ID, meta_value是wp_posts中图片ID
+  - wp_postmeta中meta_key = '_wp_attached_file'  // 图片Y/m/filename
+  - wp_postmeta中meta_key = '_wp_attachment_metadata' // 图片metadata
+* 站点与管理员对应关系记录在 wp_usermeta中，'meta_key' = 'wp_capabilities'
 
 
 
