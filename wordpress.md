@@ -621,6 +621,19 @@ wordpress学习============================
   - wp_postmeta中meta_key = '_wp_attached_file'  // 图片Y/m/filename
   - wp_postmeta中meta_key = '_wp_attachment_metadata' // 图片metadata
 * 站点与管理员对应关系记录在 wp_usermeta中，'meta_key' = 'wp_capabilities'
+* 导航菜单记录
+  - posts -> post_parent, menu_order, post_type = 'nav_menu_item'
+  - term_relationships -> object_id = posts.ID, term_taxonomy_id = term_taxonomy.term_taxonomy_id
+  - terms_taxonomy -> taxonomy = 'nav_menu'  // 菜单名
+  - terms   // 菜单名
+* 当前导航菜单元素类名
+  - current-category-ancestor
+  - current-menu-ancestor
+  - current-menu-parent
+  - current-category-parent
+  - current-post-ancestor
+
+
 
 
 
