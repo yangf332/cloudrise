@@ -57,6 +57,8 @@ Web开发资源
 
 [icon](http://www.iconfont.cn/)
 
+[CSS clip-path maker](http://bennettfeely.com/clippy/)
+
 ## git
 [github](http://github.com/)
 
