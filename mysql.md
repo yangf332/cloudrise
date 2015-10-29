@@ -42,6 +42,7 @@ mysql
     select * from tablename where filed1 like 'a%';
     select * from tablename where filed1 like '___';       ---- 三个长度
     select * from tablename where filed1 regexp '^.{5}$';  ---- 正则
+    select * from tablename where MATCH(column) AGAINST (keyword);
     update tablename set field1 = 1 where field2 = 2;
     update tablename set field1 = substring(field1, 3);
     update tablename set field1 = concat('pre', field1);
