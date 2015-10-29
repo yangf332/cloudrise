@@ -606,6 +606,23 @@ wordpress学习============================
 #### 其它
 * 文章列表页每页显示数量：get_option('posts_per_page');
 
+#### wp升级
+1. 备份数据库及文件
+2. 停用所有插件
+3. 下载最新版本文件
+4. 替换新文件除了以下
+     - wp-config.php
+     - wp-content 目录
+     - wp-images 目录
+     - wp-includes/languages/ 目录
+     - .htaccess
+     - robots.txt
+5. 运行upgrade program http://xxx/wp-admin/upgrade.php
+6. 在后台点击链接“升级网络”进行升级（此步骤用来验证多站点数据库修改是否生效）
+7. 更新Permalinks && .htaccess
+8. 激活需要的插件
+9. 检查所有改变内容是否正常
+
 ## FAQ
 * 加载Google Fonts导致访问变慢？ 安装Disable Google Fonts插件并启用
 * 引用wp-blog-header.php报404？应该引用wp-load.php文件       include_once( __FILE__ . '/wp-load.php' );
