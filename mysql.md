@@ -254,6 +254,29 @@ mysql
     - Using temporary  对查询结果排序时使用临时表，常见于order by和group by，效果受重大影响
 
 
+### 全文索引
+* 特点
+  - 性能比like强很多
+  - 仅InnoDB和MyISAM引擎支持（InnoDB在mysql5.6.4开始支持）
+  - 对汉语日语支持不好（没有空格之类的单词定界符）
+  - 最小长度（InnoDB默认3个字符，MyISAM默认4个字符）
+* 语法
+  - MATCH(col1,col2,…) AGAINST (expr[search_modifier])
+  - search_modifier
+    - IN NATURAL LANGUAGEMODE （默认）
+    - IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION
+    - IN BOOLEAN MODE 
+      - ( '+MySQL -YourSQL' IN BOOLEAN MODE ) -排除单词      
+      - ('MySQL YourSQL' IN BOOLEAN MODE); 空格后单词是可选的
+      - ">" 增加相关性贡献 "<" 减少相关性贡献 "()"分组 
+      - "~" 相关性为负  
+    - WITH QUERY EXPANSION
+      - 查询扩展：执行两次搜索
+         - 第一次用给定短语搜索
+         - 第二次用第一次返回结果中相关性高的词搜索
+      - 会显著地引入噪声
+      
+
 
 ## InnoDB和MyISAM
     MyISAM优点:
@@ -398,6 +421,8 @@ mysql
 [query cache](http://blog.csdn.net/qiuyepiaoling/article/details/6004611 "query cache")
 
 [mysql用户管理和权限设置](http://www.cnblogs.com/fslnet/p/3143344.html "mysql用户管理和权限设置")
+
+[MySQL全文检索](http://blog.csdn.net/bbirdsky/article/details/45368897)
 
 
 
