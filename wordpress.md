@@ -649,6 +649,10 @@ wordpress学习============================
   - current-menu-parent
   - current-category-parent
   - current-post-ancestor
+* 用户权限数据关联
+  - wp_{siteId}_options : option_name = 'wp_{siteId}_user_roles'
+
+
 
 
 
