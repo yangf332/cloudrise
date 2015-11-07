@@ -195,6 +195,12 @@ mysql
     set character_set_server=utf8;
     或者：
     set names utf8;
+* utf8_general_ci 与 utf8_unicode_ci的区别
+  - ci是case insensitive，大小写不敏感,a与A一样；cs区分大小写；bin是二进制，大小写敏感，可存二进制内容
+  - utf8_unicode_ci的最主要的特色是支持扩展，即当把一个字母看作与其它字母组合相等时。例如，在德语和一些其它语言中‘ß'等于‘ss'。
+  - utf8_unicode_ci和utf8_general_ci对中、英文来说没有实质的差别。
+  - utf8_general_ci校对速度快，但准确度稍差。utf8_unicode_ci准确度高，但校对速度稍慢。
+  - 如果你的应用有德语、法语或者俄语，请一定使用utf8_unicode_ci
 
 ## History
     cat ~/.mysql_history
@@ -424,5 +430,6 @@ mysql
 
 [MySQL全文检索](http://blog.csdn.net/bbirdsky/article/details/45368897)
 
+[Mysql中的排序规则utf8_unicode_ci、utf8_general_ci的区别总结](http://www.jb51.net/article/48775.htm)
 
 
