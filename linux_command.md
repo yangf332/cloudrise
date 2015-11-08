@@ -20,9 +20,18 @@ Linux Command
     // 过滤目录
     find . -path './dontsearchpath' -prune -o -name 'a.txt'
     find . -size +4k 
-    
 
     sed -i 's/str1/str2/g' `grep str1 -rl ./`  // ./是当前目录
+    
+## for循环
+    for i in {1..10}; do echo $i; done
+    for i in 1 2 3;do echo $i; done
+    for var in `cat filename.txt`; do echo $var; done
+    // 批量修改文件名
+    for var in *.txt; do mv $var `echo $var|tr a-z A-Z`;done // 大小写转换
+    for var in *.txt; do mv $var `echo $var|sed s/abc/def/`;done // 正则替换
+    
+    
 
 ## 传输
     上传：rz -bey // receive
@@ -30,7 +39,7 @@ Linux Command
     scp /path/file name@ip:/path/file
 
 ## 打包
-    zip -r file.zip folename/*
+    zip -r file.zip foldername/*
     unzip file.zip
 
 ## 查看log
