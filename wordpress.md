@@ -651,6 +651,13 @@ wordpress学习============================
   - current-post-ancestor
 * 用户权限数据关联
   - wp_{siteId}_options : option_name = 'wp_{siteId}_user_roles'
+* 关闭文章自动保存功能，修改wp-config.php， 并删除残留记录
+  - define('WP_POST_REVISIONS', false);
+  - define('AUTOSAVE_INTERVAL', false);
+  - DELETE FROM `wp_posts` WHERE `wp_posts`.`post_status` = 'inherit'
+  - DELETE FROM `wp_posts` WHERE `wp_posts`.`post_status` = 'auto-draft'
+
+
 
 
 
