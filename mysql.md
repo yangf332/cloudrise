@@ -281,6 +281,20 @@ mysql
          - 第一次用给定短语搜索
          - 第二次用第一次返回结果中相关性高的词搜索
       - 会显著地引入噪声
+* 相关选项：
+  - 控制最大最小词长：修改后需要重建索引（drop index && add index 或者 repair table {tablename} QUICK）
+    - innodb: innodb_ft_min_token_size, innodb_ft_max_token_size
+    - MyISAM: ft_min_word_len, ft_max_word_len
+    - 上面内容需要修改配置文件，在[mysqld]之下
+  - 相关库表
+    - Information_schema
+      - INNODB_SYS_INDEXES：提供了InnoDB索引的状态信息
+      - INNODB_FT_CONFIG：显示一个InnoDB表的FULLTEXT索引及其相关处理的元数据
+      - INNODB_FT_INDEX_TABLE：转化后的索引信息用于处理基于InnoDB表FULLTEXT索引的文本搜索
+      - INNODB_FT_INDEX_CACHE
+      - INNODB_FT_DEFAULT_STOPWORD
+      - INNODB_FT_DELETED
+      - INNODB_FT_BEING_DELETED
       
 
 
