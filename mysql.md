@@ -331,19 +331,22 @@ mysql
 
 
 ## 报错问题
-    1.  The used SELECT statements have a different number of columns
-    在使用union查询时，多个查询语句的查询字段不一致
-    2. 找不到mysql.sock，使用find / 也不行
-    /etc/init.d/mysql stop
-    mysql -uroot -p
-    报错:Can not connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
+* The used SELECT statements have a different number of columns
+  - 在使用union查询时，多个查询语句的查询字段不一致
+* 找不到mysql.sock，使用find / 也不行
+  - /etc/init.d/mysql stop
+  - mysql -uroot -p
+  - 报错:Can not connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'
     找到文件所在位置
-    3. 编码格式为latin1，设置为utf8后，重新登录又恢复
-    解决方法是修改配置:
-    vim /etc/mysql/my.cnf
-    在client节点下添加：  default-character-set=utf8
-    在mysqld节点下添加：   character-set-server=utf8 ；  collation-server=utf8_general_ci
+* 编码格式为latin1，设置为utf8后，重新登录又恢复
+  - 解决方法是修改配置:
+  - vim /etc/mysql/my.cnf
+    - 在client节点下添加：  default-character-set=utf8
+    - 在mysqld节点下添加：   character-set-server=utf8 ；    collation-server=utf8_general_ci
     保存后重启mysql
+* This version of MySQL doesn’t yet support ‘LIMIT & IN/ALL/ANY/SOME subquery’ 
+  - select * from table where id in (select id from table limit 10); // 这样就会报错
+  - 解决方法：再套一层 select * from table where id in (select t.id from (select * from table limit 10)as t)
 
 ## 数据库范式
     第一范式(1NF)：数据库的每个字段都只能存放单一值，而且每笔记录都要能利用一个惟一的主键来加以识别
