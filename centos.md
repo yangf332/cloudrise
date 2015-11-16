@@ -116,7 +116,15 @@ CentOS 和 Ubuntu学习
     git push origin master
     
 
-
+## FAQ
+* 运行phpize时出现：Cannot find autoconf. Please check your autoconf installation
+  - 解决
+    - yum install m4
+    - yum install autoconf
+  - 解释
+    - autoconf 是 用来生成自动配置软件源代码脚本（configure）的 工具.configure脚本能独立于autoconf运行,且在 运行的 过程中,不需要用户的 干预.
+    - autoconf从configure.in这个列举编译软件时所需要各种参数的 模板文件中创建configure
+    - autoconf需要GNU m4宏处理器来处理aclocal.m4,生成configure脚本.m4是 一个宏处理器.将输入拷贝到输出,同时将宏展开.宏可以是 内嵌的 ,也可以是 用户定义的 .除了可以展开宏,m4还有一些内建的 函数,用来引用文件,执行命令,整数运算,文本操作,循环等.m4既可以作为编译器的 前端,也可以单独作为一个宏处理器.
 
 ## 网上资料
 [linux](http://www.linux.org/ "linux")
