@@ -74,6 +74,11 @@ CentOS 和 Ubuntu学习
 
 ## 安装rzsz
     yum install lrzsz
+    
+## 安装开发工具包
+    These tools include core development tools such as automake, gcc, perl, python and debuggers which is required to compile software and build new rpms
+    // 命令
+    yum groupinstall 'Development Tools'
 
 ## 安装cacti
     rpm -ivh http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
