@@ -323,6 +323,36 @@ mysql
     InnoDB 中不保存表的具体行数。执行select count(*) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。
     MyISAM的insert性能高；InnoDB针对索引的update性能高
 
+## 主从复制
+* 保持主从版本一致
+* 修改master配置文件
+  - vim /etc/my.cnf
+  - [mysqld]
+  - log-bin=mysql-bin // 必须启用二进制日志
+  - server-id=1       // 必须设置唯一ID
+* 修改slave配置文件
+  - vim /etc/my.cnf
+  - [mysqld]
+  - log-bin=mysql-bin
+  - server-id=2
+* 重启mysql
+  - /etc/init.d/mysqld restart
+* 在master上创建帐号
+  - GRANT REPLICATION SLAVE ON *.* TO 'SYNC'@'%' IDENTIFIED BY 'PASSWORD'
+* 查询master状态
+  - show master status;
+  - File:mysql-bin.000001
+  - Position: 308
+* 配置slave
+  - change master to master_host='{ip}',master_user='SYNC',master_password='PASSWORD',master_log_file='mysql-bin.00001',master_log_pos=308;
+  - start slave;
+  - show slave status\G; // 检查状态
+  - Slave_IO_Running： Yes  // 为No则有错误，可定时检测此参数发送警报
+  - Slave_SQL_Running: Yes  // 为No则有错误，可定时检测此参数发送警报
+  
+
+  
+
 ## 分库分表
     垂直切分：关系紧密的表放在一个库里
     水平切分：适合单表数据多的情况。将数据按规则切分到多个server上。
