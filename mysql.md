@@ -351,6 +351,33 @@ mysql
   - Slave_SQL_Running: Yes  // 为No则有错误，可定时检测此参数发送警报
   
 
+## 锁
+* 锁是计算机协调多个进程或线程并发访问某一资源的机制
+* 不同的存储引擎支持不同的锁机制
+  - MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）
+  - BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁
+  - InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁
+* 不同级别锁对比
+  - 表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低
+  - 行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高
+  - 页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般
+* 查询锁
+  - show status like 'table%';
+  - Table_locks_waited 值较高，则表级锁争用严重
+  - show atatus like 'innodb_row_lock%'
+  - InnoDB_row_lock_waits, InnoDB_row_lock_time_avg较高，则锁争用严重
+* 命令
+  - lock table {tablename} {locktype}
+  - locktype四种
+    - read         // 只能读，不可写
+    - read local   // 可以insert
+    - write        // 当前用户可读写，其它用户完全阻止
+    - low priority write  // 
+  - unlock table
+* MyISAM锁调度
+  - 那么，一个进程请求某个 MyISAM表的读锁，同时另一个进程也请求同一表的写锁，MySQL如何处理呢？答案是写进程先获得锁。不仅如此，即使读请求先到锁等待队列，写请求后到，写锁也会插到读锁请求之前！这是因为MySQL认为写请求一般比读请求要重要。这也正是MyISAM表不太适合于有大量更新操作和查询操作应用的原因，因为，大量的更新操作会造成查询操作很难获得读锁，从而可能永远阻塞。这种情况有时可能会变得非常糟糕！幸好我们可以通过一些设置来调节MyISAM 的调度行为。 
+  - max_write_lock_count
+   
   
 
 ## 分库分表
@@ -478,5 +505,7 @@ mysql
 [MySQL全文检索](http://blog.csdn.net/bbirdsky/article/details/45368897)
 
 [Mysql中的排序规则utf8_unicode_ci、utf8_general_ci的区别总结](http://www.jb51.net/article/48775.htm)
+
+[MySQL锁](http://blog.csdn.net/xifeijian/article/details/20313977)
 
 
