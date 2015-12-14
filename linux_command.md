@@ -81,6 +81,21 @@ Linux Command
     ls * | xargs wc -l
     find . -name '*.php' | xargs wc -l
 
+### ifconfig
+* ifconfig
+* 启动关闭网卡
+  - ifconfig eth0 up
+  - ifconfig eth0 down
+* 修改mac地址
+  - ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE
+* 配置IP地址
+  - ifconfig eth0 192.168.120.56 
+  - ifconfig eth0 192.168.120.56 netmask 255.255.255.0 broadcast 192.168.120.255
+* 启用和关闭ARP协议
+  - ifconfig eth0 arp
+  - ifconfig eth0 -arp
+* 注意：ifconfig配置网卡，重启后配置消失。如果要保存，需要个性配置文件
+
 ## 其它
     cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30 看看你最常用的命令是什么
     回到刚才的目录
