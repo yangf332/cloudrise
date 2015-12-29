@@ -81,6 +81,39 @@ Linux Command
     ls * | xargs wc -l
     find . -name '*.php' | xargs wc -l
 
+## sed命令
+* 打印
+  - sed '/match/p' filename  // 默认打印所有内容
+  - sed -n '/match/p' filename //  **取消默认打印**，只输出匹配的行
+  - sed -n '/.*ing/p' filename
+  - sed -n '2,5p' filename  //打印2到5行
+  - sed '/[Aa]bc/p' filename // 正则匹配
+* 修改
+  - sed -i 's/gb2312/utf8/g' filename // 替换一个文件
+  - sed -i 's/gb2312/utf8/g' `grep gb2312 -rl ./` // 批量替换
+  - sed -i 's/$/.../g' filename // 每行后面添加...
+  - sed -i 's/<[^>]*>//g' filename // 去除html标签
+  - sed '/test/a\ add to end' filename
+  - sed '/test/i\ add to front' filename
+  - sed '/test/c\ change' filename
+  - sed 'y/1234/abcd/' filename
+  - sed '1,10y/1234/abcd/' filename
+* 删除
+  - sed '2d' filename
+  - sed '2,$d' filename
+  - sed '$d' filename // 删除最后一行
+  - sed '/##/'d filename // 删除有##注释的行
+  - sed '/abc/,/def/d' filename // 删除包含'abc'到'def'的行之间内容
+  - sed '/abc/,10d' filename // 删除包含'abc'到第10行内容
+* 多点编辑
+  - sed -e '1,5d' -e 's/abc/012/' filename
+  - sed -n '/test/w file' filename 
+  - sed '2r c.txt' filename // 在filename第二行添加c.txt内容
+  - sed '/^##/w file' filename // 把filename中匹配##开头的行保存在file
+  - sed 's#10#100#g' filename // 紧跟着s命令的都被认为是分隔符，这里'#'替代了'/'
+  
+
+
 ### ifconfig
 * ifconfig
 * 启动关闭网卡
