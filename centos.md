@@ -80,6 +80,11 @@ CentOS 和 Ubuntu学习
     // 命令
     yum groupinstall 'Development Tools'
 
+## 性能压力测试工具
+* WebBench
+  - yum intall webbench
+  - webbench -c 1000 -t 60 {url}
+
 ## 安装cacti
     rpm -ivh http://apt.sw.be/redhat/el6/en/i386/rpmforge/RPMS/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
     yum install rrdtool -y
