@@ -656,7 +656,16 @@ wordpress学习============================
   - define('AUTOSAVE_INTERVAL', false);
   - DELETE FROM `wp_posts` WHERE `wp_posts`.`post_status` = 'inherit'
   - DELETE FROM `wp_posts` WHERE `wp_posts`.`post_status` = 'auto-draft'
+* gravatar头像被墙解决方法
 
+````
+//调用ssl 头像链接
+function get_ssl_avatar($avatar) {
+   $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2&d=mm" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+   return $avatar;
+}
+add_filter('get_avatar', 'get_ssl_avatar');
+````
 
 
 
