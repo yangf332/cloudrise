@@ -404,6 +404,8 @@ mysql
 * This version of MySQL doesn’t yet support ‘LIMIT & IN/ALL/ANY/SOME subquery’ 
   - select * from table where id in (select id from table limit 10); // 这样就会报错
   - 解决方法：再套一层 select * from table where id in (select t.id from (select * from table limit 10)as t)
+* where clause is ambiguous
+  - 这个报错多半是因为多表查询时出现了相同的列名，未指定明确的表引起的
 
 ## 数据库范式
     第一范式(1NF)：数据库的每个字段都只能存放单一值，而且每笔记录都要能利用一个惟一的主键来加以识别
