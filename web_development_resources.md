@@ -46,7 +46,6 @@ Web开发资源
 
 [mockjs 款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试](http://mockjs.com/ 'Mock.js是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试')
 
-[百度UEditor富文本编辑器](https://github.com/fex-team/ueditor '富文本编辑器')
 
 [zclip剪切板 - 注意flash位置bug](http://www.steamdev.com/zclip/ 'zclip剪切板 - 注意flash位置bug')
 
@@ -64,6 +63,12 @@ Web开发资源
 
 [git.oschina.net](https://git.oschina.net/)
 
+### WEB编辑器
+
+[百度UEditor富文本编辑器](https://github.com/fex-team/ueditor '富文本编辑器')
+
+[simditor](http://simditor.tower.im/)
+
 ## mobile
 [mobile emulator](http://emulator.mobilewebsitesubmit.com/)
 
@@ -71,6 +76,7 @@ Web开发资源
 [charisma](http://usman.it/themes/charisma/)
 
 [startbootstrap](http://startbootstrap.com/)
+)
 
 ## 标准
 [各类标准的链接集合](https://gist.github.com/wintercn/5925837)
