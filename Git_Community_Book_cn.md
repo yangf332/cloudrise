@@ -191,3 +191,8 @@ Git Community Book中文版
 * 添加本地忽略列表  echo '忽略文件名' >> .git/info/exclude
 * git添加空文件夹：在文件夹中添加一个.gitkeep文件
 * 退回到git add上一步：git rm -r --cached .
+
+
+## FAQ
+* fatal: Unable to create ‘/.git/index.lock’: File exists.
+  - rm -rf /.git/index.lock
