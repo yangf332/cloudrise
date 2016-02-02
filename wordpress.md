@@ -561,6 +561,20 @@ wordpress学习============================
     wp_upload_dir() 上传目录URL (返回一个数组) http://www.example.com/wp-content/uploads
     get_template_directory_uri()
 
+## 常用SQL
+* 查找没有图片的文章
+  - SELECT * FROM wp_posts WHERE post_type = 'post' AND ID NOT IN ( SELECT post_id FROM wp_postmeta WHERE meta_key = '_thumbnail_id')
+* 删除所有未使用的标签
+  - DELETE a,b,c FROM wp_terms AS a LEFT JOIN wp_term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN wp_term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE c.taxonomy = 'post_tag' AND c.count = 0
+* 更改WordPress地址和首页地址
+  - UPDATE wp_options
+SET option_value = replace(option_value, '旧网址', '新网址')
+WHERE option_name = 'home' OR option_name = 'siteurl'
+* 重设密码
+  - UPDATE wp_users
+SET user_pass = MD5( 'new_password' )
+WHERE user_login = 'admin'
+
 ## Plugin
 * Acurax Social Icons Options 设置各社交网络链接
 * Lightbox Gallery
