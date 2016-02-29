@@ -544,6 +544,10 @@ wordpress学习============================
     $wpdb->get_results('query', output_type)
     $wpdb->get_var( $wpdb->prepare( $sql ) );
     $wpdb->flush();
+    // 查看sql
+    define( 'SAVEQUERIES', true );
+    global $wpdb;
+    print_r( $wpdb->queries );
 
 ## 文件拆分
     header.php, sidebar.php, footer.php
