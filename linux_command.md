@@ -89,15 +89,25 @@ Linux Command
   - sed -n '2,5p' filename  //打印2到5行
   - sed '/[Aa]bc/p' filename // 正则匹配
 * 修改
+  - sed -i 直接修改文件内容
   - sed -i 's/gb2312/utf8/g' filename // 替换一个文件
   - sed -i 's/gb2312/utf8/g' `grep gb2312 -rl ./` // 批量替换
-  - sed -i 's/$/.../g' filename // 每行后面添加...
   - sed -i 's/<[^>]*>//g' filename // 去除html标签
   - sed '/test/a\ add to end' filename
   - sed '/test/i\ add to front' filename
   - sed '/test/c\ change' filename
   - sed 'y/1234/abcd/' filename
   - sed '1,10y/1234/abcd/' filename
+  - sed 's/^/#/g' filename  // 每行最前面加内容
+  - sed 's/$/#/g' filename  // 每行最后面加内容
+  - sed 's/\</#/g' filename // 每个单词前面加内容
+  - sed 's/\>/#/g' filename // 每个单词前面加内容
+  - sed 's/s/S/2' filename  // 替换每行第二个s
+  - sed 's/s/S/3g' filename // 替换每个第3个以后的s
+  - sed 's/(cat), (dog)/\1, \2/g' filename
+  - sed '1 i xxx' filename  // 第一行前插入
+  - sed '/fish/a xxx' filename // 匹配到fish追加
+  - sed '2,$d' filename
 * 删除
   - sed '2d' filename
   - sed '2,$d' filename
@@ -112,6 +122,30 @@ Linux Command
   - sed '/^##/w file' filename // 把filename中匹配##开头的行保存在file
   - sed 's#10#100#g' filename // 紧跟着s命令的都被认为是分隔符，这里'#'替代了'/'
   
+## awk
+
+* 打印
+  - awk '{print $1, $4}' f  // $1...$n表示第几列，$0表示整行
+  - awk '{printf "%8s, %18s", $1, $4}' n // 格式化输出
+* 内建变量
+  - $0 当前记录 $1~$n 第n列
+  - FS 字段分隔符 默认是空格或Tab
+  - NR行号
+  - NF字段个数
+  - RS, FS, FILENAME
+* 过滤
+  - awk '$3==0 && $6 == "LISTEN"' n  // !=, >, <, >=, <=
+  - awk '$3 >0 {print $0}' n
+  - awk '$3==0 && $6=="LISTEN" || NR==1 ' n  // 打印出表头
+  - awk '{printf NR, $1}' n // 打印行号
+  - awk 'BEGIN{FS=":"} {print $1, $3}' /etc/passwd  // 指定分隔符  或者 awk -F:
+* 匹配
+  - awk '$6 ~ /FIN/ || NR==1 {print NR, $4, $5} OFS="\t" n
+  - awk '$6 !~ /FIN/TIME/ || NR==1 {print NR, $4, $5} n
+* 统计
+  - ls -l *.php | awk '{sum+=$5} END {print sum}'   // 文件大小总和
+
+ 
 
 
 ### ifconfig
