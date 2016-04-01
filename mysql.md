@@ -69,6 +69,9 @@ mysql
     delete from tablename;
     -- 只能全部删除；返回0；自增字段恢复成初始值；快；
     truncate tablename;
+    -- 删除重复记录
+    delete from {tableName} where id not in ( select * from (select max(id) from {tableName} group by {field1}, {field2}...{fieldn} ) AS T ) 
+
 
 ## 权限相关
     use mysql;
