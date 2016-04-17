@@ -20,13 +20,17 @@ mysql
     show create table talename;
 
 ## create
-    create database databasename;
+    create database databasename DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
     create table tablename (
         id int(11) NOT NULL AUTO_INCREMENT,
-        email varchar(255) NOT NULL,
+        email varchar(255) NOT NULL,        
+        address varchar(255) NOT NULL,
         time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (id),
+        PRIMARY KEY (id),        
+        UNIQUE KEY `uni` (`email`, `address`)
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8
+
+
     * 注意int(11),在int类型中参数11为最大显示宽度，不影响取值范围
     -- 复制表结构
     create table [newtablename] like [oldtablename];
