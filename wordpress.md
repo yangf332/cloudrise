@@ -684,12 +684,10 @@ function get_ssl_avatar($avatar) {
 }
 add_filter('get_avatar', 'get_ssl_avatar');
 ````
-
-
-
-
-
-
+* 自定义上传图片目录
+  - Settings => Media 取消 " Organize my uploads into month- and year-based folders"
+  - 修改wp-config.php ，添加define('UPLOADS', 'wp-content/uploads/myfolder/' . date('Y/m/d'));
+  
 
 
 ## 网上资料
