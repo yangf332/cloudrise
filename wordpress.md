@@ -623,6 +623,11 @@ WHERE user_login = 'admin'
 
 #### 其它
 * 文章列表页每页显示数量：get_option('posts_per_page');
+* wp cron是定时机制，如定时发布文章，定期检查版本等，方法列表可参考[http://codex.wordpress.org/Category:WP-Cron_Functions]
+  - 打开页面时会检查是否有任务要执行，增加加载时间
+  - 用户很少或者有静态缓存插件时，任务可能不执行
+  - 最好手动禁用 define('DISABLE_WP_CRON', true);
+  - 使用服务器crontab调用此文件 wp-cron.php
 
 #### wp升级
 1. 备份数据库及文件
@@ -687,7 +692,6 @@ add_filter('get_avatar', 'get_ssl_avatar');
 * 自定义上传图片目录
   - Settings => Media 取消 " Organize my uploads into month- and year-based folders"
   - 修改wp-config.php ，添加define('UPLOADS', 'wp-content/uploads/myfolder/' . date('Y/m/d'));
-  
 
 
 ## 网上资料
