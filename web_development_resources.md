@@ -113,7 +113,11 @@ Web开发资源
 
 [unicode查询表](http://unicode-table.com/en/)
 
-[阿里测：网站及服务器性能分析](http://www.alibench.com)
+~~[阿里测：网站及服务器性能分析](http://www.alibench.com)~~
+
+[360网站服务监控](http://jk.cloud.360.cn/)
+
+[奇云测](http://ce.cloud.360.cn/)
 
 [can i use](http://caniuse.com/)
 
