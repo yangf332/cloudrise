@@ -76,6 +76,12 @@ mysql
     -- 删除重复记录
     delete from {tableName} where id not in ( select * from (select max(id) from {tableName} group by {field1}, {field2}...{fieldn} ) AS T ) 
 
+## prepare, execute
+    set @tb = 'tableName';
+    set @sql = concat('select * from ', @tb);
+    prepare exe_sql from @sql;
+    execute exe_sql;
+    deallocate prepare exe_sql; 
 
 ## 权限相关
     use mysql;
@@ -103,6 +109,7 @@ mysql
 ## 用户变量
     set @a = 1, @b = 2;
     select @a, @b;   
+    select count(id) into @cnt from {tableName}
 
 ## 其它
     select lpad('100015', 8, 0);
