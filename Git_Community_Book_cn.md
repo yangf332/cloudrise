@@ -168,6 +168,11 @@ Git Community Book中文版
 * git revert HEAD
 * git revert HEAD^
 
+## 忽略文件
+* .gitignore 项目公共忽略文件
+* .git/info/exclude 项目私有忽略文件
+* ~/.gitignore_global 或 /User/{xxx}/Document/.gitignore_global 全局忽略文件
+
 ## 维护Git
 * git gc   // 压缩历史信息来节约磁盘和内存空间，此操作比较耗时
 * git fsck // 运行仓库的一致性检查，此操作比较耗时
