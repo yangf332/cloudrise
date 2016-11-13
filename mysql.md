@@ -113,6 +113,13 @@ mysql
 ## 时间戳
     select current_timestamp, current_timestamp();
 
+## 存储IP地址
+* int比varchar要快，更省空间
+* 函数
+  - select inet_aton('255.255.255.255'); // 4294967295
+  - select inet_ntoa(4294967295); // 255.255.255.255  
+  - 计算方法：a.b.c.d => a * 256的3次方 + b * 256的2次方 + c * 256的1次方 + d * 256的0次方。
+
 ## 用户变量
     set @a = 1, @b = 2;
     select @a, @b;   
