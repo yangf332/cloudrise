@@ -37,6 +37,13 @@ mysql
     -- 复制所有或部分字段，或者改名
     create table [newtablename] as ( select * from [oldtablename] );
 
+## utf8mb4字符集
+* utf8mb4是utf8的超集，并且支持emoji表情
+* 修改配置
+  - vim /etc/my.cnf; character-set-server=utf8mb4; collation_server=utf8mb4_unicode_ci
+  - alert table {tableName} convert to character set utf8mb4;
+  - set names utf8mb4;
+
 
 ## use
     select version(), current_date, now(), user();
